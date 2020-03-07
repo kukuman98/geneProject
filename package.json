@@ -5,7 +5,7 @@
   "main": "node.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node node.js"
+    "start": "http://127.0.0.1:1337/"
   },
   "repository": {
     "type": "git",
