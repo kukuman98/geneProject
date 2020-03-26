@@ -1,20 +1,30 @@
 {
-  "name": "geneproject",
+  "name": "geneProject",
   "version": "1.0.0",
-  "description": "",
-  "main": "node.js",
+  "main": "app.js",
+  "dependencies": {
+    "ejs-locals": "^1.0.2",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": "6.2.2"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node node.js"
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kukuman98/geneProject.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/kukuman98/geneProject/issues"
   },
-  "homepage": "https://github.com/kukuman98/geneProject#readme"
+  "homepage": "https://github.com/kukuman98/geneProject#readme",
+  "description": ""
 }
