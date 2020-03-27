@@ -62,6 +62,7 @@ create table premature_mutation(
     position VARCHAR(20) NOT NULL,
     atgc VARCHAR(10) NOT NULL,
     m_atgc  VARCHAR(10) NOT NULL,
+    probability FLOAT NOT NULL,
     PRIMARY KEY (premature_mutation_ID),
     FOREIGN KEY (chr_ID) REFERENCES premature_chr(chr_ID) ON DELETE CASCADE
 );
