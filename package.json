@@ -1,18 +1,30 @@
 {
-  "name": "geneProject",
+  "name": "geneproject",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "index.js",
   "dependencies": {
+    "async": "^3.2.0",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "debug": "^4.1.1",
+    "dotenv": "^8.2.0",
     "ejs-locals": "^1.0.2",
     "express": "^4.17.1",
-    "mysql": "^2.18.1"
+    "express-jwt": "^5.3.3",
+    "http-errors": "^1.7.3",
+    "jade": "^1.11.0",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "react": "^16.13.1"
   },
   "devDependencies": {},
   "engines": {
     "node": "6.2.2"
   },
   "scripts": {
-    "start": "node app.js",
+    "start": "node ./myapp/bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
