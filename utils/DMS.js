@@ -70,7 +70,7 @@ async function deleteDisease(history_ID){
         console.log("success delete disease");
         return Promise.resolve(results);
     }
-    catch{
+    catch(err){
         return Promise.reject(err);
     }
 }
@@ -98,4 +98,4 @@ function getRealTime(){
 //ex:
 //commentGame(2,1,"good good lah",5);
 
-//module.exports = { commentGame, getAllComment,deleteGameComment}
+module.exports = { getAllDisease, insertDisease,getDisease,updateDisease,deleteDisease}
