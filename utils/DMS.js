@@ -1,7 +1,7 @@
 const database = require('./async-db.js')
 
 async function getAllDisease(patient_ID){
-    var sqlCommand = "SELECT `*` FROM `medical_history` WHERE `history_ID` IN (SELECT `history_ID` FROM `medical_history_list` WHERE `patient_ID` = ?)";
+    var sqlCommand = "SELECT * FROM `medical_history` WHERE `history_ID` IN (SELECT `history_ID` FROM `medical_history_list` WHERE `patient_ID` = ?)";
     const inserts = [patient_ID];
     sqlCommand = database.format(sqlCommand, inserts);
     try {

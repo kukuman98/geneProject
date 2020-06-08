@@ -1,26 +1,34 @@
 var express = require('express');
 var router = express.Router();
-var dms = require('../../utils/DMS');
 
-router.post('/', function (req, res, next) {
-    const data = req.body
-    console.log(data.patient_ID)
-    dms.getAllDisease(data.patient_ID)
-        .then(function (result) {
-            console.log(result)
-            var data = []
-            result.forEach(function (element) {
-                data.push({
-                    history_ID: element.history_ID,
-                    medical_name: element.medical_name,
-                });
-            });
-            res.json(data);
-        })
-        .catch(function (err) {
-            console.log(err)
-        })
+var pms = require('../../utils/PMS');
 
+router.get('/', function (req, res, next) {
+    // const data = req.body
+    // console.log(data.patient_ID)
+    // pms.getAllPatients()
+    //     .then(function (result) {
+    //         console.log(result)
+    //         var data = []
+    //         result.forEach(function (element) {
+    //             data.push({
+    //                 patient_ID: element.patient_ID,
+    //                 first_name: element.first_name,
+    //                 last_name: element.last_name,
+    //                 birth: element.birth,
+    //                 gender: element.gender,
+    //             });
+    //         });
+    //         res.json(data);
+    //     })
+    //     .catch(function (err) {
+        
+    //         console.log(err)
+    //     })
+    var data = [];
+    data.push(pms.getAllPatients());
+    
+    res.json(data)
 });
 
 module.exports = router;

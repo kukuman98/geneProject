@@ -1,7 +1,7 @@
 const database = require('./async-db.js')
 
 async function getAllPatients(){
-    var sqlCommand = "SELECT `*` FROM `patient`";
+    var sqlCommand = "SELECT * FROM `patient`";
     const inserts = [];
     sqlCommand = database.format(sqlCommand, inserts);
     try {
