@@ -26,3 +26,5 @@ router.post('/', function (req, res, next) {
 module.exports = router;
 //heroku git:remote -a geneherokudb (connect heroku)
 // git push --force heroku HEAD:master
+
+//http://localhost:3000/testAPI/?patient_ID=1#/
