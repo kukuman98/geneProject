@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var gms = require('../../utils/DMS');
+var dms = require('../../utils/DMS');
 
 router.post('/', function (req, res, next) {
     const data = req.body
-    console.log(data.type,data.state)
-    gms.gamelist(data.type,data.state)
+    console.log(data.patient_ID)
+    dms.getAllDisease(data.patient_ID)
         .then(function (result) {
             console.log(result)
             var data = []
