@@ -27,8 +27,7 @@ router.get('/', function (req, res, next) {
     //     })
     var data = [];
     data.push(pms.getAllPatients());
-    
-    res.json(data)
+    res.render('index', { title: 'testAPI',data : JSON.stringify(data) });
 });
 
 module.exports = router;
