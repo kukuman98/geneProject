@@ -1,0 +1,1 @@
+-- ALTER TABLE match_mutation ADD COLUMN probability FLOAT AFTER m_atgc;
