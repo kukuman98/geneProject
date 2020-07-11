@@ -3,16 +3,16 @@ var router = express.Router();
 
 var pms = require('../../utils/PMS');
 
-// router.get('/', async (req, res, next) =>{
-//     try {
-//     //listing messages in users mailbox 
-//         let patienFecth = await pms.getAllPatients();
-//         res.send(patienFecth);
-//         // res.render('index',{title: 'testAPI',data : JSON.stringify(patienFecth)});
-//     } catch (err) {
-//         next(err);
-//     }
-// });
+router.get('/', async (req, res, next) =>{
+    try {
+    //listing messages in users mailbox 
+        let patienFecth = await pms.getAllPatients();
+        res.send(patienFecth);
+        // res.render('index',{title: 'testAPI',data : JSON.stringify(patienFecth)});
+    } catch (err) {
+        next(err);
+    }
+});
 
 router.get('/:year/:month',(req, res) => {
     res.send(req.params);
