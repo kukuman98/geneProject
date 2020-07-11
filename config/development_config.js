@@ -2,9 +2,9 @@ require('dotenv').config()
 
 module.exports = {
     mysql: {
-      host: process.env.HOST,
-      user: process.env.DATABASE_USER,
-      password: process.env.DATABASE_PASSWORD,
-      database: process.env.DATABASE
+      host: 'us-cdbr-iron-east-04.cleardb.net',
+      user: 'bb8946f7f48652',
+      password: '615509d0',
+      database: 'heroku_bd511327ea03a95'
     }
 } 
