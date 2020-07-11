@@ -22,7 +22,7 @@
   },
   "devDependencies": {},
   "engines": {
-    "node": "6.2.2"
+    "node": ">= 7.6.0"
   },
   "scripts": {
     "start": "node ./myapp/bin/www",
