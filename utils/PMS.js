@@ -43,7 +43,7 @@ async function getPatient(patient_ID){
 }
 
 async function updatePatient(patient_ID, first_name, last_name, birth, gender){
-    var sqlCommand = "UPDATE `patient` SET `first_name` = ? & `last_name` = ? & `birth` = ? & `gender` = ? WHERE `patient_ID` = ?";
+    var sqlCommand = "UPDATE `patient` SET `first_name` = ?,`last_name` = ?,`birth` = ?,`gender` = ? WHERE `patient_ID` = ?";
     const inserts = [first_name, last_name, birth, gender, patient_ID];
     sqlCommand = database.format(sqlCommand, inserts);
     try {
