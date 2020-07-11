@@ -3,7 +3,7 @@ var router = express.Router();
 
 var pms = require('../../utils/PMS');
 
-router.get('/', async function (req, res, next){
+router.get('/', async (req, res, next) =>{
     try {
     //listing messages in users mailbox 
         let patienFecth = await pms.getAllPatients();
