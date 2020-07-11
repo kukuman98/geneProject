@@ -25,3 +25,6 @@ $ heroku git:remote -a geneherokudb
 ```sh
 $ git push --force heroku HEAD:master
 ```
+
+# Procfile
+* procfile is heroku first read file in start server
