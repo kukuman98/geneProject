@@ -18,7 +18,7 @@ async function insertPatientGene(patient_ID,patient_mutation_ID,chr_ID,position,
     var sqlCommand = [];
     var sql1 = "INSERT into `patient_mutation` (`patient_mutation_ID`,`chr_ID`,`position`,`atgc`,`m_atgc`) VALUE (?,?,?,?,?)";
     const inserts1 = [patient_mutation_ID, chr_ID,position,atgc,m_atgc];
-    var sql2 = "INSERT into `medical_history_list` (`patient_ID`,`patient_mutation_ID`) VALUE (?,?)";
+    var sql2 = "INSERT into `patient_chr_list` (`patient_ID`,`patient_mutation_ID`) VALUE (?,?)";
     const inserts2 = [patient_ID, patient_mutation_ID];
     sql1 = database.format(sql1,inserts1);
     sqlCommand.push(sql1);
