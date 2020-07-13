@@ -14,12 +14,12 @@ async function getAllPatientGenes(patient_ID){
     }
 }
 
-async function insertPatientGene(patient_ID,history_ID,disease_name){     
+async function insertPatientGene(patient_ID,patient_mutation_ID,chr_ID,position,atgc,m_atgc){     
     var sqlCommand = [];
-    var sql1 = "INSERT into `medical_history` (`history_ID`,`disease_name`) VALUE (?,?)";
-    const inserts1 = [history_ID, disease_name];
-    var sql2 = "INSERT into `medical_history_list` (`patient_ID`,`history_ID`) VALUE (?,?)";
-    const inserts2 = [patient_ID, history_ID];
+    var sql1 = "INSERT into `patient_mutation` (`patient_mutation_ID`,`chr_ID`,`position`,`atgc`,`m_atgc`) VALUE (?,?,?,?,?)";
+    const inserts1 = [patient_mutation_ID, chr_ID,position,atgc,m_atgc];
+    var sql2 = "INSERT into `medical_history_list` (`patient_ID`,`patient_mutation_ID`) VALUE (?,?)";
+    const inserts2 = [patient_ID, patient_mutation_ID];
     sql1 = database.format(sql1,inserts1);
     sqlCommand.push(sql1);
     sql2 = database.format(sql2,inserts2);
@@ -34,13 +34,13 @@ async function insertPatientGene(patient_ID,history_ID,disease_name){
 }
 
 
-async function getPatientGene(history_ID){
-    var sqlCommand = "SELECT `*` FROM `medical_history` WHERE `history_ID` = ?";
-    const inserts = [history_ID];
+async function getPatientGene(patient_mutation_ID){
+    var sqlCommand = "SELECT `*` FROM `patient_mutation` WHERE `patient_mutation_ID` = ?";
+    const inserts = [patient_mutation_ID];
     sqlCommand = database.format(sqlCommand, inserts);
     try {
         const results = await database.query(sqlCommand);
-        console.log("success get disease");
+        console.log("success get Gene");
         return Promise.resolve(results)
     }
     catch(err){
@@ -48,9 +48,9 @@ async function getPatientGene(history_ID){
     }
 }
 
-async function updatePatientGene(history_ID, disease_name){
-    var sqlCommand = "UPDATE `medical_history` SET `disease_name` = ? WHERE `history_ID` = ?";
-    const inserts = [disease_name,history_ID];
+async function updatePatientGene(patient_mutation_ID,chr_ID,position,atgc,m_atgc){
+    var sqlCommand = "UPDATE `patient_mutation` SET `chr_ID` = ?,`position` = ?,`atgc` = ?,`m_atgc` = ? WHERE `patient_mutation_ID` = ?";
+    const inserts = [chr_ID,position,atgc,m_atgc,patient_mutation_ID];
     sqlCommand = database.format(sqlCommand, inserts);
     try {
         await database.query(sqlCommand);
@@ -61,13 +61,13 @@ async function updatePatientGene(history_ID, disease_name){
     }
 }
 
-async function deletePatientGene(history_ID){
-    var sqlCommand = "DELETE FROM `medical_history` WHERE `history_ID`=?";
-    const inserts = [history_ID];
+async function deletePatientGene(patient_mutation_ID){
+    var sqlCommand = "DELETE FROM `patient_mutation` WHERE `patient_mutation_ID`=?";
+    const inserts = [patient_mutation_ID];
     sqlCommand = mysql.format(sqlCommand, inserts);
     try {
         await query(sqlCommand);
-        console.log("success delete disease");
+        console.log("success delete Gene");
         return Promise.resolve(results);
     }
     catch(err){
