@@ -1,7 +1,7 @@
 const database = require('./async-db.js')
 
-async function getAllDiseases(patient_ID){
-    var sqlCommand = "SELECT * FROM `medical_history` WHERE `history_ID` IN (SELECT `history_ID` FROM `medical_history_list` WHERE `patient_ID` = ?)";
+async function getAllPatientGenes(patient_ID){
+    var sqlCommand = "SELECT * FROM `patient_mutation` INNER JOIN  `chr_ID` IN (SELECT `history_ID` FROM `medical_history_list` WHERE `patient_ID` = ?)";
     const inserts = [patient_ID];
     sqlCommand = database.format(sqlCommand, inserts);
     try {
@@ -14,7 +14,7 @@ async function getAllDiseases(patient_ID){
     }
 }
 
-async function insertDisease(patient_ID,history_ID,disease_name){     
+async function insertPatientGene(patient_ID,history_ID,disease_name){     
     var sqlCommand = [];
     var sql1 = "INSERT into `medical_history` (`history_ID`,`disease_name`) VALUE (?,?)";
     const inserts1 = [history_ID, disease_name];
@@ -34,7 +34,7 @@ async function insertDisease(patient_ID,history_ID,disease_name){
 }
 
 
-async function getDisease(history_ID){
+async function getPatientGene(history_ID){
     var sqlCommand = "SELECT `*` FROM `medical_history` WHERE `history_ID` = ?";
     const inserts = [history_ID];
     sqlCommand = database.format(sqlCommand, inserts);
@@ -48,7 +48,7 @@ async function getDisease(history_ID){
     }
 }
 
-async function updateDisease(history_ID, disease_name){
+async function updatePatientGene(history_ID, disease_name){
     var sqlCommand = "UPDATE `medical_history` SET `disease_name` = ? WHERE `history_ID` = ?";
     const inserts = [disease_name,history_ID];
     sqlCommand = database.format(sqlCommand, inserts);
@@ -61,7 +61,7 @@ async function updateDisease(history_ID, disease_name){
     }
 }
 
-async function deleteDisease(history_ID){
+async function deletePatientGene(history_ID){
     var sqlCommand = "DELETE FROM `medical_history` WHERE `history_ID`=?";
     const inserts = [history_ID];
     sqlCommand = mysql.format(sqlCommand, inserts);
@@ -98,4 +98,4 @@ function getRealTime(){
 //ex:
 //commentGame(2,1,"good good lah",5);
 
-module.exports = { getAllDiseases, insertDisease,getDisease,updateDisease,deleteDisease}
+module.exports = { getAllPatientGenes, insertPatientGene,getPatientGene,updatePatientGene,deletePatientGene}

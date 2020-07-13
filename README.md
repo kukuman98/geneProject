@@ -28,3 +28,10 @@ $ git push --force heroku HEAD:master
 
 # Procfile
 * procfile is heroku first read file in start server
+
+
+# Subsystem description
+* DMS: Disease Manager Subsystem
+* PMS: Patient Manager Subsystem
+* PGMS: Patient Gene Manger Subsystem
+* MGMS: Match Gene Manager Subsystem

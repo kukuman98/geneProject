@@ -1,5 +1,9 @@
 CREATE TABLE member(
     ID VARCHAR(10) NOT NULL,
+    username VARCHAR(20),
+    password VARCHAR(20),
+    email VARCHAR(20),
+    phone VARCHAR(20),
     class INT NOT NULL,
     PRIMARY KEY (ID)
 );
@@ -13,40 +17,22 @@ CREATE TABLE patient(
     PRIMARY KEY (patient_ID)
 );
 
-CREATE TABLE patient_chr(
-    chr_ID VARCHAR(20) NOT NULL,
-    PRIMARY KEY (chr_ID)
-);
-
-CREATE TABLE patient_chr_list(
-    patient_ID VARCHAR(20) NOT NULL,
-    chr_ID VARCHAR(20) NOT NULL,
-    PRIMARY KEY (patient_ID,chr_ID),
-    FOREIGN KEY (patient_ID) REFERENCES patient(patient_ID) ON DELETE CASCADE,
-    FOREIGN KEY (chr_ID) REFERENCES patient_chr(chr_ID) ON DELETE CASCADE
-);
-
 CREATE TABLE patient_mutation(
     patient_mutation_ID VARCHAR(20) NOT NULL,
     chr_ID VARCHAR(20) NOT NULL,
     position VARCHAR(20) NOT NULL,
     atgc VARCHAR(10) NOT NULL,
     m_atgc  VARCHAR(10) NOT NULL,
-    PRIMARY KEY (patient_mutation_ID),
-    FOREIGN KEY (chr_ID) REFERENCES patient_chr(chr_ID) ON DELETE CASCADE
+    PRIMARY KEY (patient_mutation_ID)
 );
 
-CREATE TABLE match_chr(
-    chr_ID VARCHAR(20) NOT NULL,
-    PRIMARY KEY (chr_ID)
-);
 
-CREATE TABLE match_chr_list(
+CREATE TABLE patient_chr_list(
     patient_ID VARCHAR(20) NOT NULL,
-    chr_ID VARCHAR(20) NOT NULL,
-    PRIMARY KEY (patient_ID,chr_ID),
+    patient_mutation_ID VARCHAR(20) NOT NULL,
+    PRIMARY KEY (patient_ID,patient_mutation_ID),
     FOREIGN KEY (patient_ID) REFERENCES patient(patient_ID) ON DELETE CASCADE,
-    FOREIGN KEY (chr_ID) REFERENCES match_chr(chr_ID) ON DELETE CASCADE
+    FOREIGN KEY (patient_mutation_ID) REFERENCES patient_mutation(patient_mutation_ID) ON DELETE CASCADE
 );
 
 CREATE TABLE match_mutation(
@@ -55,10 +41,22 @@ CREATE TABLE match_mutation(
     position VARCHAR(20) NOT NULL,
     atgc VARCHAR(10) NOT NULL,
     m_atgc  VARCHAR(10) NOT NULL,
-    probability FLOAT,
-    PRIMARY KEY (match_mutation_ID),
-    FOREIGN KEY (chr_ID) REFERENCES match_chr(chr_ID) ON DELETE CASCADE
+    exposed_disease INTEGER,
+    exposed_health INTEGER,
+    unexposed_disease INTEGER,
+    unexposed_health INTEGER,
+    PRIMARY KEY (match_mutation_ID)
 );
+
+
+CREATE TABLE match_chr_list(
+    patient_ID VARCHAR(20) NOT NULL,
+    match_mutation_ID VARCHAR(20) NOT NULL,
+    PRIMARY KEY (patient_ID,match_mutation_ID),
+    FOREIGN KEY (patient_ID) REFERENCES patient(patient_ID) ON DELETE CASCADE,
+    FOREIGN KEY (match_mutation_ID) REFERENCES match_mutation(match_mutation_ID) ON DELETE CASCADE
+);
+
 
 CREATE TABLE medical_history(
     history_ID VARCHAR(20) NOT NULL,
@@ -74,19 +72,15 @@ CREATE TABLE medical_history_list(
     FOREIGN KEY (history_ID) REFERENCES medical_history(history_ID) ON DELETE CASCADE
 );
 
-
-CREATE TABLE premature_chr(
-    chr_ID VARCHAR(20) NOT NULL,
-    PRIMARY KEY (chr_ID)
-);
-
 create table premature_mutation(
     premature_mutation_ID VARCHAR(20) NOT NULL,
     chr_ID VARCHAR(20) NOT NULL,
     position VARCHAR(20) NOT NULL,
     atgc VARCHAR(10) NOT NULL,
     m_atgc  VARCHAR(10) NOT NULL,
-    probability FLOAT NOT NULL,
-    PRIMARY KEY (premature_mutation_ID),
-    FOREIGN KEY (chr_ID) REFERENCES premature_chr(chr_ID) ON DELETE CASCADE
+    exposed_disease INTEGER,
+    exposed_health INTEGER,
+    unexposed_disease INTEGER,
+    unexposed_health INTEGER,
+    PRIMARY KEY (premature_mutation_ID)
 );

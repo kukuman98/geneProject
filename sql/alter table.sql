@@ -14,3 +14,6 @@
 -- ALTER TABLE member ADD COLUMN password VARCHAR(20) AFTER username;
 -- ALTER TABLE member ADD COLUMN email VARCHAR(20) AFTER password;
 -- ALTER TABLE member ADD COLUMN phone VARCHAR(20) AFTER email;
+
+-- ALTER TABLE 舊資料表名稱 RENAME TO 新資料表名稱
+-- ALTER TABLE medical_history CHANGE COLUMN medical_name disease_name VARCHAR(30);
