@@ -14,9 +14,9 @@ async function getAllPatients(){
     }
 }
 
-async function insertPatient(patient_ID, first_name, last_name, birth, gender){     
-    var sql = "INSERT into `patient` (`patient_ID`,`first_name`,`last_name`,`birth`,`gender`) VALUE (?,?,?,?,?)";
-    const inserts = [patient_ID, first_name, last_name, birth, gender];
+async function insertPatient(first_name, last_name, birth, gender){     
+    var sql = "INSERT into `patient` (`first_name`,`last_name`,`birth`,`gender`) VALUE (?,?,?,?)";
+    const inserts = [first_name, last_name, birth, gender];
     sqlCommand = database.format(sql,inserts);
     try {
         await database.query(sqlCommand);
