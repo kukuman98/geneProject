@@ -1,12 +1,12 @@
 const database = require('./async-db.js')
 
 async function getAllPatientGenes(patient_ID){
-    var sqlCommand = "SELECT * FROM `patient_mutation` INNER JOIN  `chr_ID` IN (SELECT `history_ID` FROM `medical_history_list` WHERE `patient_ID` = ?)";
+    var sqlCommand = "SELECT * FROM `patient_mutation` WHERE  `patient_mutation_ID` IN (SELECT `patient_mutation_ID` FROM `patient_chr_list` WHERE `patient_ID` = ?)";
     const inserts = [patient_ID];
     sqlCommand = database.format(sqlCommand, inserts);
     try {
         const results = await database.query(sqlCommand);
-        console.log("success get person disease");
+        console.log("success get person Genes");
         return Promise.resolve(results)
     }
     catch(err){
