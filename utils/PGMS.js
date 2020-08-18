@@ -6,7 +6,6 @@ async function getAllPatientGenes(patient_ID){
     sqlCommand = database.format(sqlCommand, inserts);
     try {
         const results = await database.query(sqlCommand);
-        console.log("success get person Genes");
         return Promise.resolve(results)
     }
     catch(err){
@@ -35,12 +34,11 @@ async function insertPatientGene(patient_ID,patient_mutation_ID,chr_ID,position,
 
 
 async function getPatientGene(patient_mutation_ID){
-    var sqlCommand = "SELECT `*` FROM `patient_mutation` WHERE `patient_mutation_ID` = ?";
+    var sqlCommand = "SELECT * FROM `patient_mutation` WHERE `patient_mutation_ID` = ?";
     const inserts = [patient_mutation_ID];
     sqlCommand = database.format(sqlCommand, inserts);
     try {
         const results = await database.query(sqlCommand);
-        console.log("success get Gene");
         return Promise.resolve(results)
     }
     catch(err){
@@ -64,11 +62,10 @@ async function updatePatientGene(patient_mutation_ID,chr_ID,position,atgc,m_atgc
 async function deletePatientGene(patient_mutation_ID){
     var sqlCommand = "DELETE FROM `patient_mutation` WHERE `patient_mutation_ID`=?";
     const inserts = [patient_mutation_ID];
-    sqlCommand = mysql.format(sqlCommand, inserts);
+    sqlCommand = database.format(sqlCommand, inserts);
     try {
-        await query(sqlCommand);
-        console.log("success delete Gene");
-        return Promise.resolve(results);
+        await database.query(sqlCommand);
+        return Promise.resolve("success delete Gene");
     }
     catch(err){
         return Promise.reject(err);

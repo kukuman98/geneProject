@@ -35,12 +35,11 @@ async function insertMatchGene(patient_ID,match_mutation_ID,chr_ID,position,atgc
 
 
 async function getMatchGene(match_mutation_ID){
-    var sqlCommand = "SELECT `*` FROM `match_mutation` WHERE `match_mutation_ID` = ?";
+    var sqlCommand = "SELECT * FROM `match_mutation` WHERE `match_mutation_ID` = ?";
     const inserts = [match_mutation_ID];
     sqlCommand = database.format(sqlCommand, inserts);
     try {
         const results = await database.query(sqlCommand);
-        console.log("success get Match Gene");
         return Promise.resolve(results)
     }
     catch(err){
@@ -64,11 +63,10 @@ async function updateMatchGene(match_mutation_ID,chr_ID,position,atgc,m_atgc,exp
 async function deleteMatchGene(match_mutation_ID){
     var sqlCommand = "DELETE FROM `match_mutation` WHERE `match_mutation_ID`=?";
     const inserts = [match_mutation_ID];
-    sqlCommand = mysql.format(sqlCommand, inserts);
+    sqlCommand = database.format(sqlCommand, inserts);
     try {
-        await query(sqlCommand);
-        console.log("success delete Match Gene");
-        return Promise.resolve(results);
+        await database.query(sqlCommand);
+        return Promise.resolve("success delete Match Gene");
     }
     catch(err){
         return Promise.reject(err);

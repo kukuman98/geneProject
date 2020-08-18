@@ -23,8 +23,8 @@ CREATE TABLE patient(
     patient_ID INT NOT NULL AUTO_INCREMENT,
     first_name VARCHAR(20),
     last_name VARCHAR(20),
-    birth DATE NOT NULL,
-    gender VARCHAR(10) NOT NULL,
+    birth DATE,
+    gender VARCHAR(10),
     PRIMARY KEY (patient_ID)
 );
 

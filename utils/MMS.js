@@ -6,7 +6,6 @@ async function getAllMembers(){
     sqlcommand=database.format(sqlcommand,inserts);
     try{
         const results = await database.query(sqlcommand);
-        console.log("success get all members.");
         return Promise.resolve(results)
     }
     catch(err){
@@ -18,16 +17,15 @@ async function insertMember(username,password,email,phone){
     const inserts = [username, password, email, phone];
     sqlcommand=database.format(sql,inserts);
     try{
-        const results = await database.query(sqlcommand);
-        console.log("success insert member")
-        return Promise.resolve(results)
+        await database.query(sqlcommand);
+        return Promise.resolve("success insert member")
     }
     catch(err){
         return Promise.reject(err)
     }
 }
 async function getMember(ID){
-    var sqlCommand = "SELECT `*` FROM `member` WHERE `ID` = ?";
+    var sqlCommand = "SELECT * FROM `member` WHERE `ID` = ?";
     const inserts = [ID];
     sqlCommand = database.format(sqlCommand, inserts);
     try {
@@ -54,11 +52,10 @@ async function updateMember(ID, username, password, email, phone){
 async function deleteMember(ID){
     var sqlCommand = "DELETE FROM `member` WHERE `ID`=?";
     const inserts = [ID];
-    sqlCommand = mysql.format(sqlCommand, inserts);
+    sqlCommand = database.format(sqlCommand, inserts);
     try {
-        await query(sqlCommand);
-        console.log("success delete member");
-        return Promise.resolve(results);
+        await database.query(sqlCommand);
+        return Promise.resolve("success delete member");
     }
     catch(err){
         return Promise.reject(err);

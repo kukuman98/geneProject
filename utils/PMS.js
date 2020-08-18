@@ -6,7 +6,6 @@ async function getAllPatients(){
     sqlCommand = database.format(sqlCommand, inserts);
     try {
         const results = await database.query(sqlCommand);
-        console.log("success get all patients");
         return Promise.resolve(results)
     }
     catch(err){
@@ -29,12 +28,11 @@ async function insertPatient(first_name, last_name, birth, gender){
 
 
 async function getPatient(patient_ID){
-    var sqlCommand = "SELECT `*` FROM `patient` WHERE `patient_ID` = ?";
+    var sqlCommand = "SELECT * FROM `patient` WHERE `patient_ID` = ?";
     const inserts = [patient_ID];
     sqlCommand = database.format(sqlCommand, inserts);
     try {
         const results = await database.query(sqlCommand);
-        console.log("success get patient");
         return Promise.resolve(results)
     }
     catch(err){
@@ -58,11 +56,10 @@ async function updatePatient(patient_ID, first_name, last_name, birth, gender){
 async function deletePatient(patient_ID){
     var sqlCommand = "DELETE FROM `patient` WHERE `patient_ID`=?";
     const inserts = [patient_ID];
-    sqlCommand = mysql.format(sqlCommand, inserts);
+    sqlCommand = database.format(sqlCommand, inserts);
     try {
-        await query(sqlCommand);
-        console.log("success delete patient");
-        return Promise.resolve(results);
+        await database.query(sqlCommand);
+        return Promise.resolve("success delete patient");
     }
     catch(err){
         return Promise.reject(err);
