@@ -3,7 +3,7 @@ var router = express.Router();
 
 router.get('/', async (req, res, next) =>{
     try {
-        res.render('index',{title: 'testAPI',data : JSON.stringify(patienFecth)});
+        res.render('index',{title: 'testAPI',data : "this is testAPI"});
     } catch (err) {
         next(err);
     }
