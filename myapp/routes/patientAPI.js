@@ -6,8 +6,8 @@ var pms = require('../../utils/PMS');
 router.post('/',async (req,res,next) => {
     try {
         let data = req.query
-        pms.insertPatient(data['first_name'],data['last_name'],data['birth'],data['gender'])
-        res.send('success insert patient');
+        let fetchPms = await pms.insertPatient(data['first_name'],data['last_name'],data['email'],data['birth'],data['gender'])
+        res.send(fetchPms);
         
     } catch(err){
         next(err);
@@ -39,8 +39,8 @@ router.get('/detail/',async (req,res,next) => {
 router.put('/detail/',async (req,res,next) => {
     try {
         let data = req.query;
-        await pms.updatePatient(data['patient_ID'],data['first_name'],data['last_name'],data['birth'],data['gender']);
-        res.send('success update patient data');
+        let fetchPms = await pms.updatePatient(data['patient_ID'],data['first_name'],data['last_name'],data['email'],data['birth'],data['gender']);
+        res.send(fetchPms);
     } catch(err){
         next(err);
     }
@@ -49,8 +49,8 @@ router.put('/detail/',async (req,res,next) => {
 router.delete('/detail/',async (req,res,next) => {
     try {
         let patient_ID = req.query['patient_ID'];
-        await pms.deletePatient(patient_ID);
-        res.send('succes delete patient');
+        let fetchPms = await pms.deletePatient(patient_ID);
+        res.send(fetchPms);
     } catch(err){
         next(err);
     }

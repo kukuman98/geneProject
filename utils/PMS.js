@@ -13,16 +13,16 @@ async function getAllPatients(){
     }
 }
 
-async function insertPatient(first_name, last_name, birth, gender){     
-    var sql = "INSERT into `patient` (`first_name`,`last_name`,`birth`,`gender`) VALUE (?,?,?,?)";
-    const inserts = [first_name, last_name, birth, gender];
+async function insertPatient(first_name, last_name, email, birth, gender){     
+    var sql = "INSERT into `patient` (`first_name`,`last_name`,`email`,`birth`,`gender`) VALUE (?,?,?,?)";
+    const inserts = [first_name, last_name, email, birth, gender];
     sqlCommand = database.format(sql,inserts);
     try {
         await database.query(sqlCommand);
         return Promise.resolve("success insert patient")
     }
     catch(err){
-        return Promise.reject(err)
+        return err
     }
 }
 
@@ -40,9 +40,9 @@ async function getPatient(patient_ID){
     }
 }
 
-async function updatePatient(patient_ID, first_name, last_name, birth, gender){
-    var sqlCommand = "UPDATE `patient` SET `first_name` = ?,`last_name` = ?,`birth` = ?,`gender` = ? WHERE `patient_ID` = ?";
-    const inserts = [first_name, last_name, birth, gender, patient_ID];
+async function updatePatient(patient_ID, first_name, last_name, email, birth, gender){
+    var sqlCommand = "UPDATE `patient` SET `first_name` = ?,`last_name` = ?, `email` = ?, `birth` = ?,`gender` = ? WHERE `patient_ID` = ?";
+    const inserts = [first_name, last_name, email, birth, gender, patient_ID];
     sqlCommand = database.format(sqlCommand, inserts);
     try {
         await database.query(sqlCommand);
