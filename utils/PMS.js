@@ -22,7 +22,7 @@ async function insertPatient(first_name, last_name, email, birth, gender){
         return Promise.resolve("success insert patient")
     }
     catch(err){
-        return err
+        return Promise.reject(err)
     }
 }
 

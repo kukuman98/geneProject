@@ -30,7 +30,6 @@ async function getMember(ID){
     sqlCommand = database.format(sqlCommand, inserts);
     try {
         const results = await database.query(sqlCommand);
-        console.log("success get member");
         return Promise.resolve(results)
     }
     catch(err){
