@@ -24,8 +24,8 @@ async function insertDisease(patient_ID,history_ID,disease_name){
     sql2 = database.format(sql2,inserts2);
     sqlCommand.push(sql2);
     try {
-        await database.transaction(sqlCommand);
-        return Promise.resolve("success insert")
+        let result = await database.transaction(sqlCommand);
+        return Promise.resolve(result)
     }
     catch(err){
         return Promise.reject(err)
@@ -51,8 +51,8 @@ async function updateDisease(history_ID, disease_name){
     const inserts = [disease_name,history_ID];
     sqlCommand = database.format(sqlCommand, inserts);
     try {
-        await database.query(sqlCommand);
-        return Promise.resolve("success update")
+        let result = await database.query(sqlCommand);
+        return Promise.resolve(result)
     }
     catch(err){
         return Promise.reject(err)
@@ -64,8 +64,8 @@ async function deleteDisease(history_ID){
     const inserts = [history_ID];
     sqlCommand = database.format(sqlCommand, inserts);
     try {
-        await database.query(sqlCommand);
-        return Promise.resolve("success delete disease");
+        let result = await database.query(sqlCommand);
+        return Promise.resolve(result);
     }
     catch(err){
         return Promise.reject(err);
