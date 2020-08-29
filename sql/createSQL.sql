@@ -15,7 +15,7 @@ CREATE TABLE member(
     password VARCHAR(20),
     email VARCHAR(20),
     phone VARCHAR(20),
-    class INT NOT NULL,
+    level INT,
     PRIMARY KEY (ID)
 );
 
