@@ -65,7 +65,5 @@ async function deletePatient(patient_ID){
         return Promise.reject(err);
     }
 }
-//ex:
-//commentGame(2,1,"good good lah",5);
 
 module.exports = { getAllPatients, insertPatient,getPatient,updatePatient,deletePatient}

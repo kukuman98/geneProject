@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-data = "We have testAPI,patientAPI, ..."
+data = "We have testAPI,patientAPI,loginAPI,registerAPI,memberAPI, ..."
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

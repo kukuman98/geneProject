@@ -103,7 +103,6 @@ async function login(email, password){
     }
 
 }
-//ex:
-//commentGame(2,1,"good good lah",5);
+
 
 module.exports = { register,modify,login,getAllMembers,getMember,updateMember,deleteMember}

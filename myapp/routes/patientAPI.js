@@ -16,11 +16,9 @@ router.post('/',async (req,res,next) => {
 });
 
 router.get('/', async (req, res, next) =>{
-    try {
-    //listing messages in users mailbox 
+    try { 
         let patienFecth = await pms.getAllPatients();
         res.send(patienFecth);
-        // res.render('index',{title: 'testAPI',data : JSON.stringify(patienFecth)});
     } catch (err) {
         next(err);
     }
@@ -58,5 +56,3 @@ router.delete('/detail/',async (req,res,next) => {
 module.exports = router;
 //heroku git:remote -a geneherokudb (connect heroku)
 // git push --force heroku HEAD:master
-
-//http://localhost:3000/testAPI/?patient_ID=1#/

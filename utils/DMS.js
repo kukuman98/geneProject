@@ -72,27 +72,4 @@ async function deleteDisease(history_ID){
     }
 }
 
-function compareObj(obj1,obj2){
-    var i=0;
-    while(obj2[i]){
-        if(obj1 === obj2[i].ID){
-            return true;
-        }
-        i++; 
-    }
-    return false;
-}
-
-
-function getRealTime(){
-    var today = new Date();
-    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    var dateTime = date+' '+time;
-    return dateTime;
-}
-
-//ex:
-//commentGame(2,1,"good good lah",5);
-
 module.exports = { getAllDiseases, insertDisease,getDisease,updateDisease,deleteDisease}
