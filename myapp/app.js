@@ -11,6 +11,7 @@ var patientAPIRouter = require('./routes/patientAPI');
 var loginAPIRouter = require('./routes/loginAPI');
 var registerAPIRouter = require('./routes/registerAPI');
 var memberAPIRouter = require('./routes/memberAPI');
+var airtableAPIRouter= require('./routes/AirtableAPI');
 
 var app = express();
 
@@ -34,6 +35,7 @@ app.use('/patientAPI',patientAPIRouter);
 app.use('/login',loginAPIRouter);
 app.use('/register',registerAPIRouter);
 app.use('/member',memberAPIRouter);
+app.use('/Airtable',airtableAPIRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -3,15 +3,17 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
+    "airtable": "^0.10.0",
+    "airtable-node": "^0.1.20",
     "async": "^3.2.0",
     "asyncawait": "^3.0.0",
     "body-parser": "^1.19.0",
+    "clean-css": ">=4.1.11",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "csv-parser": "^2.3.3",
     "debug": "^4.1.1",
     "dotenv": "^8.2.0",
-    "clean-css": ">=4.1.11",
     "express": "^4.17.1",
     "express-jwt": "^6.0.0",
     "http-errors": "^1.7.3",
@@ -19,7 +21,8 @@
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
-    "react": "^16.13.1"
+    "react": "^16.13.1",
+    "xlsx": "^0.16.7"
   },
   "devDependencies": {},
   "engines": {
