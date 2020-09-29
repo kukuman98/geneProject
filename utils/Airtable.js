@@ -12,7 +12,7 @@ const att = new AirtablePlus({
 
 
 
-async function excel_to_airtable(CSVFile){
+async function csv_to_airtable(CSVFile){
     data = await csv.readCVS('/GeneProject/csv/premature0-7.csv')
     for (i=0;i<data.length;i++){
         data[i]['B'] = parseInt(data[i]['B'])
