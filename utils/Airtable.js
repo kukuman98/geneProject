@@ -1,6 +1,6 @@
 var XLSX= require('xlsx');
 const AirtablePlus = require('airtable-plus');
-
+const database = require('./async-db.js')
 
 
 const att = new AirtablePlus({
@@ -14,9 +14,8 @@ const att = new AirtablePlus({
 
 
 
-function excel_to_airtable(){
+async function excel_to_airtable(){
     const airtable = new Airtable({ apiKey:'keyt731Ji6vXlN4Xe', base:'apphn7fSPMk5mEcLz', table:'r7', view:'Grid View' })
-    var XLSX = require('xlsx')
     var workbook = XLSX.readFile('ratiofilter.xlsx');
     var sheet_name_list = workbook.SheetNames;
     var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[1]]);
@@ -25,8 +24,15 @@ function excel_to_airtable(){
     }
 }
 
-function getAirtableData(){
-    var records=await read();
+async function getAirtableData(){
+    try {
+        var records= await att.read();
+        console.log(records);
+        return Promise.resolve(records)
+    }
+    catch(err){
+        return Promise.reject(err)
+    }
 }
 
 module.exports = { excel_to_airtable,getAirtableData}
