@@ -1,7 +1,5 @@
-var XLSX= require('xlsx');
 const AirtablePlus = require('airtable-plus');
-const database = require('./async-db.js')
-
+const csv = require('./read-csv.js')
 
 const att = new AirtablePlus({
     apiKey: 'keyt731Ji6vXlN4Xe',
@@ -14,14 +12,14 @@ const att = new AirtablePlus({
 
 
 
-async function excel_to_airtable(){
-    const airtable = new Airtable({ apiKey:'keyt731Ji6vXlN4Xe', base:'apphn7fSPMk5mEcLz', table:'r7', view:'Grid View' })
-    var workbook = XLSX.readFile('ratiofilter.xlsx');
-    var sheet_name_list = workbook.SheetNames;
-    var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[1]]);
+async function excel_to_airtable(CSVFile){
+    data = await csv.readCVS('/GeneProject/csv/premature0-7.csv')
     for (i=0;i<data.length;i++){
-        att.create(data[i]);
+        data[i]['B'] = parseInt(data[i]['B'])
+        data[i]['A'] = parseInt(data[i]['A'])
+        await att.create(data[i]);
     }
+    return 200
 }
 
 async function getAirtableData(){
@@ -34,4 +32,4 @@ async function getAirtableData(){
     }
 }
 
-module.exports = { excel_to_airtable,getAirtableData}
+module.exports = {csv_to_airtable, getAirtableData}
