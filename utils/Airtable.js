@@ -27,7 +27,6 @@ async function excel_to_airtable(){
 async function getAirtableData(){
     try {
         var records= await att.read();
-        console.log(records);
         return Promise.resolve(records)
     }
     catch(err){

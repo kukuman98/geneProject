@@ -9,8 +9,6 @@ router.get('/',function(req,res){
 router.get('/AllRecords/',async (req,res,next) =>{
     try {
         let AllRecords = await AT.getAirtableData()
-        console.log("hello")
-        console.log(AllRecords)
         res.send(AllRecords)
     } catch(err){
         next(err);
