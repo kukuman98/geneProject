@@ -36,3 +36,11 @@ $ git push --force heroku HEAD:master
 * PGMS: Patient Gene Manger Subsystem
 * MGMS: Match Gene Manager Subsystem
 * PGRMS: Preterm Gene Reference Management Subsystem
+
+* B 變異沒早產
+* A 變異早產
+* C 沒變異早產
+* D 沒變異沒早產
+* LRR 對數相對風險
+* RRR 相對風險率
+* W 權重
