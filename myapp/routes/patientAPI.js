@@ -54,5 +54,5 @@ router.delete('/detail/',async (req,res,next) => {
     }
 });
 module.exports = router;
-//heroku git:remote -a geneherokudb (connect heroku)
-// git push --force heroku HEAD:master
+//  heroku git:remote -a geneherokudb (connect heroku)
+//  git push --force heroku HEAD:master
