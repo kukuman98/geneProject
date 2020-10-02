@@ -35,7 +35,7 @@ router.get('/detail/',async (req,res,next) => {
             res.send('permission denied')
             return
         }
-        let member_ID = req.body['ID'];
+        let member_ID = req.params['ID'];
         let memberFecth = await mms.getMember(member_ID);
         res.send(memberFecth);    
     } catch(err){
