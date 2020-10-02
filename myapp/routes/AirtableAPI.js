@@ -1,6 +1,7 @@
 var express= require('express');
 var router = express.Router();
-var AT=require('../../utils/Airtable')
+var AT=require('../../utils/Airtable');
+var jwt_decode = require('jwt-decode');
 
 function checkPermission(token,level){
     let permission = jwt_decode(token)

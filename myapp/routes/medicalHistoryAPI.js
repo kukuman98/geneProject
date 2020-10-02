@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+var jwt_decode = require('jwt-decode');
 var dms = require('../../utils/DMS');
 
 function checkPermission(token,level){
