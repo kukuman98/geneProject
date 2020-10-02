@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var mms = require('../../utils/MMS');
+var dms = require('../../utils/DMS');
 
 function checkPermission(token,level){
     let permission = jwt_decode(token)
@@ -18,44 +18,32 @@ function checkPermission(token,level){
 
 router.get('/',async (req, res, next) => {
     try {
-        if(checkPermission(req.headers['authorization'],3) == false){
+        if(checkPermission(req.headers['authorization'],2) == false){
             res.send('permission denied')
             return
         }
-        let memberFecth = await mms.getAllMembers()
-        res.send(memberFecth);    
+        let data = req.query;
+        let historyFecth = await dms.getAllDiseases(data['patient_ID'])
+        res.send(historyFecth);
     } catch (err) {
         next(err);
     }
 });
 
-router.get('/detail/',async (req,res,next) => {
-    try {
-        if(checkPermission(req.headers['authorization'],3) == false){
-            res.send('permission denied')
-            return
-        }
-        let member_ID = req.query['ID'];
-        let memberFecth = await mms.getMember(member_ID);
-        res.send(memberFecth);    
-    } catch(err){
-        next(err);
-    }
-});
-
-router.put('/detail/',async (req,res,next) => {
+router.post('/detail/',async (req,res,next) => {
     try {
         if(checkPermission(req.headers['authorization'],3) == false){
             res.send('permission denied')
             return
         }
         let data = req.query;
-        let memberFecth = await mms.updateMember(data['ID'],data['username'],data['password'],data['email'],data['phone'],data['level']);
-        res.send(memberFecth);
+        let historyFecth = await dms.insertDisease(data['patient_ID'],data['medical_name'],data['hospital'],data['medical_date'],data['medical_instructions'],data['medical_description']);
+        res.send(historyFecth);
     } catch(err){
         next(err);
     }
 });
+
 
 router.delete('/detail/',async (req,res,next) => {
     try {
@@ -63,27 +51,28 @@ router.delete('/detail/',async (req,res,next) => {
             res.send('permission denied')
             return
         }
-        let member_ID = req.query['ID'];
-        let memberFecth = await mms.deleteMember(member_ID);
-        res.send(memberFecth);    
+        let history_ID = req.query['history_ID'];
+        let historyFecth = await dms.deleteDisease(history_ID);
+        res.send(historyFecth);
     } catch(err){
         next(err);
     }
 });
 
-router.put('/modify/', async (req,res,next)=>{
+router.put('/modify/',async (req,res,next) => {
     try {
         if(checkPermission(req.headers['authorization'],3) == false){
             res.send('permission denied')
             return
         }
         let data = req.query;
-        let memberFecth = await mms.modify(data['ID'],data['field'],data['value']);
-        res.send(memberFecth);    
+        let historyFecth = await dms.modify(data['history_ID'],data['field'],data['value']);
+        res.send(historyFecth);
     } catch(err){
         next(err);
     }
-})
+});
+
 module.exports = router;
 //  heroku git:remote -a geneherokudb (connect heroku)
 //  git push --force heroku HEAD:master

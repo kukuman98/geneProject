@@ -30,14 +30,18 @@ CREATE TABLE patient(
 );
 
 CREATE TABLE medical_history(
-    history_ID INT NOT NULL AUTO_INCREMENT,
+    history_ID VARCHAR(20) NOT NULL,
     medical_name VARCHAR(30),
+    hospital VARCHAR(20),
+    medical_date DATE,
+    medical_instructions VARCHAR(50),
+    medical_description VARCHAR(120),
     PRIMARY KEY (history_ID)
 );
 
 CREATE TABLE medical_history_list(
     patient_ID INT NOT NULL,
-    history_ID INT NOT NULL,
+    history_ID VARCHAR(20) NOT NULL,
     PRIMARY KEY (patient_ID,history_ID),
     FOREIGN KEY (patient_ID) REFERENCES patient(patient_ID) ON DELETE CASCADE,
     FOREIGN KEY (history_ID) REFERENCES medical_history(history_ID) ON DELETE CASCADE

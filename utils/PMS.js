@@ -14,7 +14,7 @@ async function getAllPatients(){
 }
 
 async function insertPatient(first_name, last_name, email, birth, gender){     
-    var sql = "INSERT into `patient` (`first_name`,`last_name`,`email`,`birth`,`gender`) VALUE (?,?,?,?)";
+    var sql = "INSERT into `patient` (`first_name`,`last_name`,`email`,`birth`,`gender`) VALUE (?,?,?,?,?)";
     const inserts = [first_name, last_name, email, birth, gender];
     sqlCommand = database.format(sql,inserts);
     try {
@@ -26,19 +26,6 @@ async function insertPatient(first_name, last_name, email, birth, gender){
     }
 }
 
-
-async function getPatient(patient_ID){
-    var sqlCommand = "SELECT * FROM `patient` WHERE `patient_ID` = ?";
-    const inserts = [patient_ID];
-    sqlCommand = database.format(sqlCommand, inserts);
-    try {
-        const results = await database.query(sqlCommand);
-        return Promise.resolve(results)
-    }
-    catch(err){
-        return Promise.reject(err)
-    }
-}
 
 async function updatePatient(patient_ID, first_name, last_name, email, birth, gender){
     var sqlCommand = "UPDATE `patient` SET `first_name` = ?,`last_name` = ?, `email` = ?, `birth` = ?,`gender` = ? WHERE `patient_ID` = ?";
@@ -66,4 +53,4 @@ async function deletePatient(patient_ID){
     }
 }
 
-module.exports = { getAllPatients, insertPatient,getPatient,updatePatient,deletePatient}
+module.exports = { getAllPatients, insertPatient,updatePatient,deletePatient}

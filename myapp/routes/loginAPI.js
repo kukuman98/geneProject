@@ -11,8 +11,8 @@ router.post('/', function (req, res, next) {
             const token = 'Bearer ' + jwt.sign(
                 {
                     uid: info.ID,
-                    admin: info.level == 3, //1 = viewer, 2 = staff, 3 = admin
-
+                    admin: info.level === 3, //1 = viewer, 2 = staff, 3 = admin
+                    staff: info.level === 2,
                 },
                 'secret12345',
                 {
