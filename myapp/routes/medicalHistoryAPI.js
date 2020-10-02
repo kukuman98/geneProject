@@ -22,7 +22,7 @@ router.get('/',async (req, res, next) => {
             res.send('permission denied')
             return
         }
-        let data = req.params;
+        let data = req.query;
         let historyFecth = await dms.getAllDiseases(data['patient_ID'])
         res.send(historyFecth);
     } catch (err) {
