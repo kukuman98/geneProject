@@ -22,7 +22,7 @@ router.post('/',async (req,res,next) =>{
             res.send('permission denied')
             return
         }
-        let records =await AT.csv_to_airtable('/GeneProject/csv/patient.csv',req.query['base'],req.query['table'])
+        let records =await AT.csv_to_airtable('/GeneProject/csv/patient.csv',req.body['base'],req.body['table'])
         res.send(records)
     } catch(err){
         next(err);
@@ -35,7 +35,7 @@ router.get('/getMatchRecords/',async (req,res,next) =>{
             res.send('permission denied')
             return
         }
-        let matchRecords = await AT.getMatchData(req.query['compare_table'],req.query['patient_id'])
+        let matchRecords = await AT.getMatchData(req.body['compare_table'],req.body['patient_id'])
         res.send(matchRecords)
     } catch(err){
         next(err);

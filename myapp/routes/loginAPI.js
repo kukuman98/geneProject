@@ -3,7 +3,7 @@ var router = express.Router();
 var mms = require('../../utils/MMS');
 const jwt = require('jsonwebtoken')
 router.post('/', function (req, res, next) {
-    const data = req.query
+    const data = req.body
     console.log(data)
     mms.login(data['email'], data['password'])
         .then(function (info) {

@@ -22,7 +22,7 @@ router.post('/',async (req,res,next) => {
             res.send('permission denied')
             return
         }
-        let data = req.query
+        let data = req.body
         let fetchPms = await pms.insertPatient(data['first_name'],data['last_name'],data['email'],data['birth'],data['gender'])
         res.send(fetchPms);    
     } catch(err){
@@ -50,7 +50,7 @@ router.put('/detail/',async (req,res,next) => {
             res.send('permission denied')
             return
         }
-        let data = req.query;
+        let data = req.body;
         let fetchPms = await pms.updatePatient(data['patient_ID'],data['first_name'],data['last_name'],data['email'],data['birth'],data['gender']);
         res.send(fetchPms);    
     } catch(err){
@@ -64,7 +64,7 @@ router.delete('/detail/',async (req,res,next) => {
             res.send('permission denied')
             return
         }
-        let patient_ID = req.query['patient_ID'];
+        let patient_ID = req.body['patient_ID'];
         let fetchPms = await pms.deletePatient(patient_ID);
         res.send(fetchPms);    
     } catch(err){

@@ -35,7 +35,7 @@ router.get('/detail/',async (req,res,next) => {
             res.send('permission denied')
             return
         }
-        let member_ID = req.query['ID'];
+        let member_ID = req.body['ID'];
         let memberFecth = await mms.getMember(member_ID);
         res.send(memberFecth);    
     } catch(err){
@@ -49,7 +49,7 @@ router.put('/detail/',async (req,res,next) => {
             res.send('permission denied')
             return
         }
-        let data = req.query;
+        let data = req.body;
         let memberFecth = await mms.updateMember(data['ID'],data['username'],data['password'],data['email'],data['phone'],data['level']);
         res.send(memberFecth);
     } catch(err){
@@ -63,7 +63,7 @@ router.delete('/detail/',async (req,res,next) => {
             res.send('permission denied')
             return
         }
-        let member_ID = req.query['ID'];
+        let member_ID = req.body['ID'];
         let memberFecth = await mms.deleteMember(member_ID);
         res.send(memberFecth);    
     } catch(err){
@@ -77,7 +77,7 @@ router.put('/modify/', async (req,res,next)=>{
             res.send('permission denied')
             return
         }
-        let data = req.query;
+        let data = req.body;
         let memberFecth = await mms.modify(data['ID'],data['field'],data['value']);
         res.send(memberFecth);    
     } catch(err){
