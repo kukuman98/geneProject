@@ -35,6 +35,7 @@ router.get('/getMatchRecords/',async (req,res,next) =>{
             res.send('permission denied')
             return
         }
+        console.log(req.body)
         let matchRecords = await AT.getMatchData(req.body['compare_table'],req.body['patient_id'])
         res.send(matchRecords)
     } catch(err){
