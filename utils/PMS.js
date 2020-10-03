@@ -14,7 +14,7 @@ async function getAllPatients(){
 }
 
 async function getPatient(patient_ID){
-    var sqlCommand = "SELECT * FROM `patient `WHERE `patient_ID` = ?";
+    var sqlCommand = "SELECT * FROM `patient` WHERE `patient_ID` = ?";
     const inserts = [patient_ID];
     sqlCommand = database.format(sqlCommand, inserts);
     try {
