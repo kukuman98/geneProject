@@ -44,6 +44,19 @@ router.post('/detail/',async (req,res,next) => {
     }
 });
 
+router.put('/detail/',async (req,res,next) => {
+    try {
+        if(checkPermission(req.headers['authorization'],3) == false){
+            res.send('permission denied')
+            return
+        }
+        let data = req.body;
+        let historyFecth = await dms.insertDisease(data['history_ID'],data['medical_name'],data['hospital'],data['medical_date'],data['medical_instructions'],data['medical_description']);
+        res.send(historyFecth);
+    } catch(err){
+        next(err);
+    }
+});
 
 router.delete('/detail/',async (req,res,next) => {
     try {

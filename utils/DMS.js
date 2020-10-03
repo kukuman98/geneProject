@@ -45,6 +45,18 @@ async function insertDisease(patient_ID,medical_name,hospital,medical_date,medic
     }
 }
 
+async function updateDisease(history_ID, medical_name,hospital,medical_date,medical_instructions,medical_description){
+    var sqlCommand = "UPDATE `medical_history` SET `medical_name` = ?,`hospital` = ?,`medical_date` = ?,`medical_instructions` = ?,`medical_description` = ? WHERE `history_ID` = ?";
+    const inserts = [ medical_name,hospital,medical_date,medical_instructions,medical_description,history_ID];
+    sqlCommand = database.format(sqlCommand, inserts);
+    try {
+        await database.query(sqlCommand);
+        return Promise.resolve("success update history")
+    }
+    catch(err){
+        return Promise.reject(err)
+    }
+}
 
 
 async function modify (history_ID, field, value){
@@ -74,4 +86,4 @@ async function deleteDisease(history_ID){
     }
 }
 
-module.exports = { getAllDiseases, insertDisease,modify,deleteDisease}
+module.exports = { getAllDiseases, insertDisease,modify,deleteDisease,updateDisease}
