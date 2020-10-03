@@ -64,10 +64,16 @@ function refactorData(records){
 
 function customMatchData(patients,models,match){
     if(match){
+        
         patients['name'] = models['Gene.refGene']
         patients['type'] = models['Func.reference']
         patients['ratio'] = models['ratio']
-        patients['color'] = '#8D4'
+        if(models['Func.referenc'] == "exonic"){
+            patients['color'] = '#516E41'    
+        }
+        else if (models['Func.referenc'] == "ncRNA_exonic"){
+            patients['color'] = '#B5495B' 
+        }
         patients['shape'] = 'triangle'
         patients['status'] = 'match'    
     }
