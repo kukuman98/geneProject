@@ -5,6 +5,7 @@
 -- ALTER TABLE match_mutation ADD COLUMN unexposed_health INTEGER AFTER unexposed_disease;
 -- ALTER TABLE match_mutation DROP COLUMN probability;
 
+--  UPDATE patient SET gender = "female" WHERE gender = "woman";
 
 -- ALTER TABLE member DROP COLUMN username;
 -- ALTER TABLE member DROP COLUMN password;

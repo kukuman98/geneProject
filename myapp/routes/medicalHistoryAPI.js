@@ -64,8 +64,6 @@ router.delete('/detail/',async (req,res,next) => {
             res.send('permission denied')
             return
         }
-        console.log(req.body)
-        console.log(req.params)
         let history_ID = req.body['history_ID'];
         let historyFecth = await dms.deleteDisease(history_ID);
         res.send(historyFecth);

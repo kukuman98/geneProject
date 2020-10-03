@@ -33,7 +33,7 @@ CREATE TABLE patient(
 CREATE TABLE medical_history(
     history_ID VARCHAR(20) NOT NULL,
     medical_name VARCHAR(30),
-    hospital VARCHAR(20),
+    hospital VARCHAR(100),
     medical_date DATE,
     medical_instructions VARCHAR(50),
     medical_description VARCHAR(120),
