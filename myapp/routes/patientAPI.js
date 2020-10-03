@@ -50,7 +50,7 @@ router.get('/detail/', async (req, res, next) =>{
             res.send('permission denied')
             return
         }
-        let data = req.params;
+        let data = req.query;
         let patienFecth = await pms.getPatient(data['patient_ID']);
         res.send(patienFecth);    
     } catch (err) {
