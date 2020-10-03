@@ -23,7 +23,7 @@ router.post('/',async (req,res,next) => {
             return
         }
         let data = req.body
-        let fetchPms = await pms.insertPatient(data['first_name'],data['last_name'],data['email'],data['birth'],data['gender'])
+        let fetchPms = await pms.insertPatient(data['first_name'],data['last_name'],data['email'],data['birth'],data['gender'],data['allergen'])
         res.send(fetchPms);    
     } catch(err){
         next(err);
@@ -44,6 +44,20 @@ router.get('/', async (req, res, next) =>{
     }
 });
 
+router.get('/detail/', async (req, res, next) =>{
+    try { 
+        if(checkPermission(req.headers['authorization'],3) == false){
+            res.send('permission denied')
+            return
+        }
+        let data = req.params;
+        let patienFecth = await pms.getPatient(data['patient_ID']);
+        res.send(patienFecth);    
+    } catch (err) {
+        next(err);
+    }
+});
+
 router.put('/detail/',async (req,res,next) => {
     try {
         if(checkPermission(req.headers['authorization'],3) == false){
@@ -51,7 +65,7 @@ router.put('/detail/',async (req,res,next) => {
             return
         }
         let data = req.body;
-        let fetchPms = await pms.updatePatient(data['patient_ID'],data['first_name'],data['last_name'],data['email'],data['birth'],data['gender']);
+        let fetchPms = await pms.updatePatient(data['patient_ID'],data['first_name'],data['last_name'],data['email'],data['birth'],data['gender'],data['allergen']);
         res.send(fetchPms);    
     } catch(err){
         next(err);

@@ -26,6 +26,7 @@ CREATE TABLE patient(
     email VARCHAR(30) NOT NULL,
     birth DATE,
     gender VARCHAR(10),
+    allergen VARCHAR(100),
     PRIMARY KEY (patient_ID)
 );
 
