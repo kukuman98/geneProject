@@ -10,7 +10,7 @@ DROP TABLE match_mutation;
 
 
 CREATE TABLE member(
-    ID INT NOT NULL AUTO_INCREMENT,
+    ID VARCHAR(100),
     username VARCHAR(20),
     password VARCHAR(20),
     email VARCHAR(20),
@@ -31,7 +31,7 @@ CREATE TABLE patient(
 );
 
 CREATE TABLE medical_history(
-    history_ID VARCHAR(20) NOT NULL,
+    history_ID VARCHAR(100) NOT NULL,
     medical_name VARCHAR(30),
     hospital VARCHAR(100),
     medical_date DATE,

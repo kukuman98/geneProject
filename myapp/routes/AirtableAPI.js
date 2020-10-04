@@ -1,10 +1,13 @@
 var express= require('express');
 var router = express.Router();
 var AT=require('../../utils/Airtable');
+var mms = require('../../utils/MMS');
 var jwt_decode = require('jwt-decode');
 
-function checkPermission(token,level){
+async function checkPermission(token,level){
     let permission = jwt_decode(token)
+    var member = await mms.getMember(permission['uid'])
+    if(member[0]['ID'] != permission['uid']) return false
     if(level==3 && permission['admin'] == true){
         return true
     }

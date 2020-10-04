@@ -1,5 +1,18 @@
 const database = require('./async-db.js')
 
+function _uuid() {
+    var d = Date.now();
+    if (typeof performance !== 'undefined' && typeof performance.now === 'function'){
+        d += performance.now(); //use high-precision timer if available
+    }
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = (d + Math.random() * 16) % 16 | 0;
+        d = Math.floor(d / 16);
+        return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+    });
+}
+
+
 async function getAllMembers(){
     var sqlcommand = "select `ID`,`username`,`email`,`phone`,`level` from `member`";
     const inserts=[];
@@ -56,8 +69,10 @@ async function deleteMember(ID){
 async function register(username,password,email,phone,level){
 
     try {
-        let sql = "INSERT into `member` (`username`, `password`, `email`, `phone`,`level`) VALUE (?,?,?,?,?)";
-        const inserts = [username,password,email,phone,level];
+        var member_ID = _uuid()
+        console.log(member_ID)
+        let sql = "INSERT into `member` (`ID`,`username`, `password`, `email`, `phone`,`level`) VALUE (?,?,?,?,?,?)";
+        const inserts = [member_ID,username,password,email,phone,level];
         sqlCommand = database.format(sql, inserts);
         await database.query(sqlCommand);
         return Promise.resolve("success register member");

@@ -3,8 +3,10 @@ var router = express.Router();
 var jwt_decode = require('jwt-decode');
 var mms = require('../../utils/MMS');
 
-function checkPermission(token,level){
+async function checkPermission(token,level){
     let permission = jwt_decode(token)
+    var member = await mms.getMember(permission['uid'])
+    if(member[0]['ID'] != permission['uid']) return false
     if(level==3 && permission['admin'] == true){
         return true
     }
