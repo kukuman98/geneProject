@@ -1,0 +1,80 @@
+chr:Start,Ref,Alt,Func.reference,Gene.refGene,B(變異沒早產）,A（變異早產）,D（沒變異沒早產）,C（沒變異早產）,N1,N2,RRR（相對風險比率差）,W(權重）,LRR(對數相對風險),ratio,,,distinct Gene.refGene,
+chr10:14383205,T,A,ncRNA_exonic,MIR4293,5,12,19,12,17,31,1.823529412,13.23012552,0.60077386,0.705882353,,,ANGEL1,"GWAS: response to venlafaxine, generalized anxiety disorder 對文拉法辛的反應，廣泛性焦慮症"
+chr11:117903679,A,G,exonic,TMPRSS13,5,13,19,11,18,30,1.96969697,12.66732283,0.677879708,0.722222222,,,ARGFXP2,Periventricular heterotopia with microcephaly 腦室周圍異位症伴小頭畸形
+chr11:118894558,G,C,exonic,CXCR5,6,16,18,8,22,26,2.363636364,9.654008439,0.860201265,0.727272727,,,AXIN2,"Colorectal cancer, somatic 結直腸癌，體細胞癌。Oligodontia-colorectal cancer syndrome 是一種顯性遺傳的病症，其中發生嚴重的永久性牙齒發育不全和可變的結腸直腸瘤形成。"
+chr11:17593656,G,A,exonic,OTOG,5,12,19,12,17,31,1.823529412,13.23012552,0.60077386,0.705882353,,,C1orf106,Inflammatory bowel disease 29 腸胃炎症。
+chr11:17610204,C,T,exonic,OTOG,5,14,19,10,19,29,2.136842105,11.8603936,0.759329087,0.736842105,,,C20orf166-AS1,ncRNA
+chr11:17611104,C,T,exonic,OTOG,5,14,19,10,19,29,2.136842105,11.8603936,0.759329087,0.736842105,,,CACNA1D,"Primary aldosteronism, seizures, and neurologic abnormalities 原發性醛固酮增多症，癲癇發作和神經系統異常。 Sinoatrial node dysfunction and deafness 竇房結功能障礙和耳聾"
+chr11:17641897,C,T,exonic,OTOG,4,12,20,12,16,32,2,13.71428571,0.693147181,0.75,,,COL27A1,Steel syndrome 鋼鐵綜合症
+chr11:5788760,G,A,exonic,OR52N1,5,13,19,11,18,30,1.96969697,12.66732283,0.677879708,0.722222222,,,COL5A3,Mutations in this gene are thought to be responsible for the symptoms of a subset of patients with Ehlers-Danlos syndrome type III.  該基因的突變被認為是導致Ehlers-Danlos綜合徵III型患者的一部分症狀的原因。
+chr11:62998959,A,T,exonic,SLC22A8,6,14,18,10,20,28,1.96,11.66666667,0.672944473,0.7,,,CSMD1,Diseases associated with CSMD1 include Benign Adult Familial Myoclonic Epilepsy and Smallpox. 與CSMD1相關的疾病包括良性成人家族性肌陣攣性癲癇和天花。
+chr11:67393490,A,G,exonic,RAD9A,5,12,19,12,17,31,1.823529412,13.23012552,0.60077386,0.705882353,,,CTBS,nvolved in the degradation of asparagine-linked glycoproteins. 參與天冬?胺連接的糖蛋白的降解。
+chr11:71796106,T,G,exonic,FAM86C1,6,14,18,10,20,28,1.96,11.66666667,0.672944473,0.7,,,CXCR5,與B細胞功能，淋巴組織相關 https://www.omim.org/entry/601613?search=CXCR5&highlight=cxcr5
+chr11:74267198,G,A,exonic,P4HA3,8,19,16,5,27,21,2.955555556,5.953249337,1.083686638,0.703703704,,,DTHD1,涉及Leber先天性黑朦和輕度至中度非特異性肌營養不良症的綜合徵，但尚未得到證實
+chr11:74277122,C,T,exonic,P4HA3,8,19,16,5,27,21,2.955555556,5.953249337,1.083686638,0.703703704,,,ESPNL,GWAS: irritable bowel syndrome 過敏性腸綜合徵。Binds to but does not cross-link actin. Required for the formation and maintenance of inner ear hair cell stereocilia and staircase formation. Essential for normal hearing. 結合但不交聯肌動蛋白。 內耳毛細胞毛細胞穩定性和階梯形成所需的形成和維持。 正常聽力必不可少。
+chr12:21178665,T,C,exonic,SLCO1B1,6,14,18,10,20,28,1.96,11.66666667,0.672944473,0.7,,,FAM83C,The encoded protein may be involved in regulating MAPK signaling in cancer cells.
+chr12:32582302,C,T,exonic,FGD4,5,12,19,12,17,31,1.823529412,13.23012552,0.60077386,0.705882353,,,FAM86C1,甲基轉移?活性
+chr12:69880205,T,G,exonic,MYRFL,5,12,19,12,17,31,1.823529412,13.23012552,0.60077386,0.705882353,,,FAT2,Spinocerebellar ataxia 脊髓小腦性共濟失調
+chr12:7921596,G,A,exonic,SLC2A3,5,13,19,11,18,30,1.96969697,12.66732283,0.677879708,0.722222222,,,FBN1,結締組織的醫學病症。Acromicric dysplasia是一種罕見的骨骼發育不良，其特徵是骨骼生長異常。 Entopia lentis綜合徵是一種遺傳性結締組織疾病，具有Marfan綜合徵的一些特徵 - 特別是眼睛晶狀體脫位，可引起嚴重的視力問題。 Stiff skin syndrome 僵硬的皮膚綜合症。
+chr13:40756890,C,G,exonic,MRPS31,5,13,19,11,18,30,1.96969697,12.66732283,0.677879708,0.722222222,,,FGD4,Charcot-Marie-Tooth神經病變4H型（CMT4H）是一種脫髓鞘形式的CMT，其特徵是早發（通常在3歲之前;範圍：出生至10歲）和緩慢進展。
+chr14:20229441,T,G,exonic,OR11H7,6,14,18,10,20,28,1.96,11.66666667,0.672944473,0.7,,,GRM8,可能與視網膜和大腦發育過程中基因調控相關
+chr14:45242391,T,C,exonic,MIS18BP1,2,12,22,12,14,34,2.428571429,15.19148936,0.887303195,0.857142857,,,HOXB13,"Prostate cancer, hereditary 遺傳性前列腺癌"
+chr14:76803445,A,C,exonic,ANGEL1,3,12,21,12,15,33,2.2,14.34782609,0.78845736,0.8,,,ISG15,Immunodeficiency 38 免疫缺陷
+chr15:40807701,-,GGGGC,exonic,ZFYVE19,6,15,18,9,21,27,2.142857143,10.73863636,0.762140052,0.714285714,,,KRT32,與頭皮毛囊角蛋白相關
+chr15:48487333,G,C,exonic,FBN1,3,13,21,11,16,32,2.363636364,13.49852507,0.860201265,0.8125,,,LCLAT1,在內質網（ER）中起到?基轉移?的作用，並且主要重塑陰離子磷脂，包括磷脂?肌醇和磷脂?甘油。https://www.omim.org/entry/614241?search=lclat1&highlight=lclat1
+chr15:48505110,A,G,exonic,FBN1,5,15,19,9,20,28,2.333333333,10.86206897,0.84729786,0.75,,,LOC105371730,ncRNA
+chr17:32142404,C,A,ncRNA_exonic,LOC105371730,4,14,20,10,18,30,2.333333333,12.11538462,0.84729786,0.777777778,,,MIR4293,miRNA
+chr17:32150662,C,A,ncRNA_exonic,ARGFXP2,5,14,19,10,19,29,2.136842105,11.8603936,0.759329087,0.736842105,,,MIR4744,miRNA
+chr17:32206951,A,G,exonic,RHOT1,6,14,18,10,20,28,1.96,11.66666667,0.672944473,0.7,,,MIS18BP1,Diseases associated with MIS18BP1 include Retinitis Pigmentosa 24.   與MIS18BP1相關的疾病包括視網膜色素變性24.
+chr17:41464147,C,T,exonic,KRT32,5,14,19,10,19,29,2.136842105,11.8603936,0.759329087,0.736842105,,,MROH5,Negative genetic interaction between PTEN-/- and PTEN+/+ Decreased viability no effect Increased caspase activity Increased vaccinia virus (VACV) infection Decreased human papilloma virus 16 (HPV16) pseudovirus infection Decreased NF-kappaB reporter expression Increased viability
+chr17:48724362,T,G,exonic,PRAC2,8,20,16,4,28,20,3.571428571,4.666666667,1.272965676,0.714285714,,,MRPS31,針對38-kD胰島蛋白的細胞介導的自身免疫攻擊與人類糖尿病和糖尿病動物模型相關。 https://www.omim.org/entry/611992?search=mrps31&highlight=mrps31
+chr17:48728081,A,G,exonic,HOXB13,5,15,19,9,20,28,2.333333333,10.86206897,0.84729786,0.75,,,MYRFL,"GWAS: late-onset Alzheimers disease 遲發性阿爾茨海默病，congenital left-sided heart lesions 先天性左側心臟病變，attention deficit hyperactivity disorder, conduct disorder 注意力缺陷多動障礙，行為障礙"
+chr17:65536399,G,A,exonic,AXIN2,5,13,19,11,18,30,1.96969697,12.66732283,0.677879708,0.722222222,,,OR11H7,嗅覺受體蛋白是由單個編碼 - 外顯子基因產生的大家族G蛋白偶聯受體（GPCR）的成員。嗅覺受體與許多神經遞質和激素受體共享7-跨膜結構域結構，並負責識別和G蛋白介導的氣味信號轉導。
+chr17:73402031,G,C,exonic,SDK2,4,12,20,12,16,32,2,13.71428571,0.693147181,0.75,,,OR52N1,嗅覺受體蛋白是由單個編碼 - 外顯子基因產生的大家族G蛋白偶聯受體（GPCR）的成員。嗅覺受體與許多神經遞質和激素受體共享8-跨膜結構域結構，並負責識別和G蛋白介導的氣味信號轉導。
+chr18:49049688,T,C,ncRNA_exonic,MIR4744,5,16,19,8,21,27,2.571428571,9.723472669,0.944461609,0.761904762,,,OTOG,"Deafness, autosomal recessive 18B 耳聾，常染色體隱性遺傳18B"
+chr19:10005699,G,T,exonic,COL5A3,5,16,19,8,21,27,2.571428571,9.723472669,0.944461609,0.761904762,,,P4HA3,重組P4HA3和P4HB在胚胎腎細胞中的共表達導致形成羥基化膠原鍊和膠原蛋白樣?的活性?。免疫沉澱研究證實P4HA3與P4HB相互作用。
+chr19:33156473,T,C,exonic,WDR88,6,14,18,10,20,28,1.96,11.66666667,0.672944473,0.7,,,PHAX,參與XPO1介導的U snRNA從細胞核輸出的磷蛋白銜接子。
+chr19:49196609,C,T,exonic,TRPM4,5,12,19,12,17,31,1.823529412,13.23012552,0.60077386,0.705882353,,,PRAC2,GWAS: odontogenesis 成牙，tooth eruption 牙齒萌出，body fat percentage 體脂肪百分比，type II diabetes mellitus II型糖尿病。
+chr19:52383993,-,CAA,exonic,ZNF880,7,19,17,5,26,22,3.215384615,5.927137871,1.167946982,0.730769231,,,RAD9A,細胞週期停滯和DNA損傷修復所需的細胞週期檢查點蛋白。 
+chr19:52384174,A,C,exonic,ZNF880,7,19,17,5,26,22,3.215384615,5.927137871,1.167946982,0.730769231,,,RGS3,該基因編碼G蛋白信號傳導（RGS）家族的調節劑的成員。 該蛋白質是GTP?活化蛋白質，其抑制G蛋白介導的信號轉導。 
+chr19:52384184,A,C,exonic,ZNF880,7,19,17,5,26,22,3.215384615,5.927137871,1.167946982,0.730769231,,,RHOT1,encode RHO家族的線粒體GTP?。 RHOT1在線粒體穩態和凋亡中起作用
+chr19:52384651,T,C,exonic,ZNF880,7,19,17,5,26,22,3.215384615,5.927137871,1.167946982,0.730769231,,,RRH,encode 視覺色素樣G蛋白偶聯受體（GPCR），定位於視網膜色素上皮細胞（RPE）的頂端微絨毛，緊鄰感光細胞外部區段
+chr19:52384817,-,TTGGGAGGCCGAGGCGG,exonic,ZNF880,4,16,20,8,20,28,2.8,9.824561404,1.029619417,0.8,,,SDC3,與肥胖有關
+chr19:52384957,T,C,exonic,ZNF880,7,19,17,5,26,22,3.215384615,5.927137871,1.167946982,0.730769231,,,SDK2,與視網膜神經節細胞相關
+chr19:52384992,A,G,exonic,ZNF880,7,19,17,5,26,22,3.215384615,5.927137871,1.167946982,0.730769231,,,SLC22A8,該基因編碼參與鈉依賴性運輸和有機陰離子排泄的蛋白質，其中一些有潛在的毒性。
+chr19:52842068,T,G,exonic,ZNF468,5,13,19,11,18,30,1.96969697,12.66732283,0.677879708,0.722222222,,,SLC2A3,
+chr1:1014228,G,A,exonic,ISG15,5,12,19,12,17,31,1.823529412,13.23012552,0.60077386,0.705882353,,,SLCO1B1,"Hyperbilirubinemia, Rotor type, digenic 高膽紅素血症，轉子型，雙基因"
+chr1:200898424,C,T,exonic,C1orf106,4,12,20,12,16,32,2,13.71428571,0.693147181,0.75,,,SPARCL1,被認為有助於誘導或維持HEV內皮細胞的特徵，促進淋巴細胞遷移
+chr1:30876828,G,A,exonic,SDC3,6,14,18,10,20,28,1.96,11.66666667,0.672944473,0.7,,,SPATA1,Decreased viability no effect Increased vaccinia virus (VACV) infection Decreased human papilloma virus 16 (HPV16) pseudovirus infection Decreased NF-kappaB reporter expression Decreased IL-8 secretion Increased viability
+chr1:32363680,G,A,exonic,TSSK3,5,13,19,11,18,30,1.96969697,12.66732283,0.677879708,0.722222222,,,TENM2,teneurins和latrophilins形成經典的嗜異性細胞粘附對，並且latrophilins中的可變剪接調節相互作用。
+chr1:84550494,A,G,exonic,SPATA1,7,18,17,6,25,23,2.76,7.207520891,1.01523068,0.72,,,TET2,"Myelodysplastic syndrome, somatic 身體骨髓增生異常綜合症"
+chr1:84565947,G,A,exonic,CTBS,7,18,17,6,25,23,2.76,7.207520891,1.01523068,0.72,,,TMPRSS13,跨膜絲氨酸蛋白?受蛋白?抑製劑調節，並且已知在發育，體內平衡，感染和腫瘤發生中起作用。 
+chr1:84574272,G,A,exonic,CTBS,7,18,17,6,25,23,2.76,7.207520891,1.01523068,0.72,,,TRPM4,"Progressive familial heart block, type IB 進行性家族性心臟傳導阻滯，IB型"
+chr1:84574386,G,A,exonic,CTBS,7,18,17,6,25,23,2.76,7.207520891,1.01523068,0.72,,,TSSK3,被認為在生殖細胞分化或成熟精子功能中起作用。
+chr20:35286917,C,T,exonic,FAM83C,5,12,19,12,17,31,1.823529412,13.23012552,0.60077386,0.705882353,,,WDR88,Negative genetic interaction between KRASG13D/+ and KRAS+/- Increased vaccinia virus (VACV) infection
+chr20:62546157,T,C,ncRNA_exonic,C20orf166-AS1,5,12,19,12,17,31,1.823529412,13.23012552,0.60077386,0.705882353,,,WRN,Werner syndrome 維爾納綜合症
+chr2:238116989,T,C,exonic,ESPNL,7,20,17,4,27,21,3.888888889,4.643734644,1.358123484,0.740740741,,,ZBBX,"schizophrenia, response to paliperidone, schizophrenia symptom severity measurement 精神分裂症，對帕潘立酮的反應，精神分裂症症狀嚴重程度測量"
+chr2:238117004,C,T,exonic,ESPNL,7,20,17,4,27,21,3.888888889,4.643734644,1.358123484,0.740740741,,,ZFYVE19,"Key regulator of abscission step in cytokinesis: part of the cytokinesis checkpoint, a process required to delay abscission to prevent both premature resolution of intercellular chromosome bridges and accumulation of DNA damage.  胞質分裂中脫落步驟的關鍵調節因子：胞質分裂檢查點的一部分，是延遲脫落以防止細胞間染色體橋的過早消退和DNA損傷累積所需的過程。 "
+chr2:238127629,C,T,exonic,ESPNL,5,14,19,10,19,29,2.136842105,11.8603936,0.759329087,0.736842105,,,ZNF468,ZNF468屬於鋅指蛋白的C2H2亞家族，其結合DNA並參與轉錄調節。
+chr2:30640226,C,T,exonic,LCLAT1,5,12,19,12,17,31,1.823529412,13.23012552,0.60077386,0.705882353,,,ZNF680,可能參與轉錄調控。
+chr2:30640242,A,G,exonic,LCLAT1,5,12,19,12,17,31,1.823529412,13.23012552,0.60077386,0.705882353,,,ZNF880,"response to bronchodilator, asthma 對支氣管擴張劑，哮喘的反應。colorectal health 結直腸健康"
+chr3:167305950,G,C,exonic,ZBBX,5,12,19,12,17,31,1.823529412,13.23012552,0.60077386,0.705882353,,,,
+chr3:167317026,T,C,exonic,ZBBX,5,12,19,12,17,31,1.823529412,13.23012552,0.60077386,0.705882353,,,,
+chr3:167350468,T,A,exonic,ZBBX,5,12,19,12,17,31,1.823529412,13.23012552,0.60077386,0.705882353,,,,
+chr3:53735452,C,T,exonic,CACNA1D,5,12,19,12,17,31,1.823529412,13.23012552,0.60077386,0.705882353,,,,
+chr4:105234028,C,G,exonic,TET2,5,13,19,11,18,30,1.96969697,12.66732283,0.677879708,0.722222222,,,,
+chr4:109836068,G,A,exonic,RRH,5,12,19,12,17,31,1.823529412,13.23012552,0.60077386,0.705882353,,,,
+chr4:109836131,G,A,exonic,RRH,5,12,19,12,17,31,1.823529412,13.23012552,0.60077386,0.705882353,,,,
+chr4:36316348,T,C,exonic,DTHD1,3,14,21,10,17,31,2.552941176,12.44601889,0.937246097,0.823529412,,,,
+chr4:87491654,T,C,exonic,SPARCL1,5,12,19,12,17,31,1.823529412,13.23012552,0.60077386,0.705882353,,,,
+chr5:126603717,C,T,exonic,PHAX,5,14,19,10,19,29,2.136842105,11.8603936,0.759329087,0.736842105,,,,
+chr5:151525924,C,T,exonic,FAT2,5,12,19,12,17,31,1.823529412,13.23012552,0.60077386,0.705882353,,,,
+chr5:168247365,C,T,exonic,TENM2,5,12,19,12,17,31,1.823529412,13.23012552,0.60077386,0.705882353,,,,
+chr7:126902613,A,T,exonic,GRM8,6,15,18,9,21,27,2.142857143,10.73863636,0.762140052,0.714285714,,,,
+chr7:64521181,T,C,exonic,ZNF680,4,12,20,12,16,32,2,13.71428571,0.693147181,0.75,,,,
+chr8:141479310,A,G,exonic,MROH5,4,12,20,12,16,32,2,13.71428571,0.693147181,0.75,,,,
+chr8:31167138,T,C,exonic,WRN,2,12,22,12,14,34,2.428571429,15.19148936,0.887303195,0.857142857,,,,
+chr8:3493625,G,A,exonic,CSMD1,4,12,20,12,16,32,2,13.71428571,0.693147181,0.75,,,,
+chr9:113584007,C,T,exonic,RGS3,5,13,19,11,18,30,1.96969697,12.66732283,0.677879708,0.722222222,,,,
+chr9:114240237,C,T,exonic,COL27A1,5,12,19,12,17,31,1.823529412,13.23012552,0.60077386,0.705882353,,,,
+chr9:114309464,A,G,exonic,COL27A1,6,17,18,7,23,25,2.639751553,8.460064293,0.970684804,0.739130435,,,,

@@ -25,10 +25,30 @@ router.post('/',async (req,res,next) =>{
             res.send('permission denied')
             return
         }
-        let records =await AT.csv_to_airtable('/GeneProject/csv/patient.csv',req.body['base'],req.body['table'])
-        res.send(records)
+        if(!req.files) {
+            res.send({
+                status: false,
+                message: 'No file uploaded'
+            });
+        } else {
+            let avatar = req.files.file;
+            
+            avatar.mv('./uploads/' + avatar.name);
+            let records =await AT.csv_to_airtable(avatar.name,req.query['base'],req.query['table'])
+            res.send(records)
+            res.status(records).send({
+                status: true,
+                message: 'File is uploaded',
+                data: {
+                    name: avatar.name,
+                    mimetype: avatar.mimetype,
+                    size: avatar.size
+                }
+            });
+        }
+        
     } catch(err){
-        next(err);
+        res.status(500).send(err);
     }
 })
 
