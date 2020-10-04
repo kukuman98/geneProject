@@ -38,9 +38,9 @@ async function getMember(ID){
         return Promise.reject(err)
     }
 }
-async function updateMember(ID, username, password, email, phone, level){
-    var sqlCommand = "UPDATE `member` SET `username` = ?,`password` = ?,`email` = ?,`phone` = ?,`level` = ? WHERE `ID` = ?";
-    const inserts = [username, password, email, phone, level,ID];
+async function updateMember(ID, username, email, phone, level){
+    var sqlCommand = "UPDATE `member` SET `username` = ?,`email` = ?,`phone` = ?,`level` = ? WHERE `ID` = ?";
+    const inserts = [username, email, phone, level,ID];
     sqlCommand = database.format(sqlCommand, inserts);
     try {
         await database.query(sqlCommand);

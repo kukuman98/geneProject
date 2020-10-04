@@ -52,7 +52,7 @@ router.put('/detail/',async (req,res,next) => {
             return
         }
         let data = req.body;
-        let memberFecth = await mms.updateMember(data['ID'],data['username'],data['password'],data['email'],data['phone'],data['level']);
+        let memberFecth = await mms.updateMember(data['ID'],data['username'],data['email'],data['phone'],data['level']);
         res.send(memberFecth);
     } catch(err){
         next(err);
