@@ -22,19 +22,19 @@ async function checkPermission(token,level){
 router.post('/',async (req,res,next) =>{
     try {
         console.log(req.body.file)
-        console.log(req.files)
+        console.log(req.files.file)
         if(await checkPermission(req.headers['authorization'],3) == false){
             res.send('permission denied')
             return
         }
         console.log(req.query)
-        if(!req.body.file) {
+        if(!req.files) {
             res.send({
                 status: false,
                 message: 'No file uploaded'
             });
         } else {
-            let avatar = req.body.file;
+            let avatar = req.files.file;
             avatar.mv('./csv/' + avatar.name);
             let records =await AT.csv_to_airtable('./csv/'+avatar.name.toString(),req.query['base'],req.query['table'])
             res.status(records).send({
