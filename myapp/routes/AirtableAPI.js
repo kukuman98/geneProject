@@ -21,7 +21,7 @@ async function checkPermission(token,level){
 
 router.post('/',async (req,res,next) =>{
     try {
-        if(checkPermission(req.headers['authorization'],3) == false){
+        if(await checkPermission(req.headers['authorization'],3) == false){
             res.send('permission denied')
             return
         }
@@ -34,7 +34,7 @@ router.post('/',async (req,res,next) =>{
 
 router.get('/getMatchRecords/',async (req,res,next) =>{
     try {
-        if(checkPermission(req.headers['authorization'],2) == false){
+        if(await checkPermission(req.headers['authorization'],2) == false){
             res.send('permission denied')
             return
         }

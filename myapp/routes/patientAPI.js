@@ -5,6 +5,7 @@ var pms = require('../../utils/PMS');
 var mms = require('../../utils/MMS')
 
 async function checkPermission(token,level){
+    if(token == undefined) return false
     let permission = jwt_decode(token)
     var member = await mms.getMember(permission['uid'])
     if(member[0]['ID'] != permission['uid']) return false
@@ -21,7 +22,7 @@ async function checkPermission(token,level){
 
 router.post('/',async (req,res,next) => {
     try {
-        if(checkPermission(req.headers['authorization'],3) == false){
+        if(await checkPermission(req.headers['authorization'],3) == false){
             res.send('permission denied')
             return
         }
@@ -36,7 +37,7 @@ router.post('/',async (req,res,next) => {
 
 router.get('/', async (req, res, next) =>{
     try { 
-        if(checkPermission(req.headers['authorization'],2) == false){
+        if(await checkPermission(req.headers['authorization'],2) == false){
             res.send('permission denied')
             return
         }
@@ -49,7 +50,7 @@ router.get('/', async (req, res, next) =>{
 
 router.get('/detail/', async (req, res, next) =>{
     try { 
-        if(checkPermission(req.headers['authorization'],3) == false){
+        if(await checkPermission(req.headers['authorization'],3) == false){
             res.send('permission denied')
             return
         }
@@ -63,7 +64,7 @@ router.get('/detail/', async (req, res, next) =>{
 
 router.put('/detail/',async (req,res,next) => {
     try {
-        if(checkPermission(req.headers['authorization'],3) == false){
+        if(await checkPermission(req.headers['authorization'],3) == false){
             res.send('permission denied')
             return
         }
@@ -77,7 +78,7 @@ router.put('/detail/',async (req,res,next) => {
 
 router.delete('/detail/',async (req,res,next) => {
     try {
-        if(checkPermission(req.headers['authorization'],3) == false){
+        if(await checkPermission(req.headers['authorization'],3) == false){
             res.send('permission denied')
             return
         }
