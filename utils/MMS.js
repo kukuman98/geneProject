@@ -1,7 +1,7 @@
 const database = require('./async-db.js')
 
 async function getAllMembers(){
-    var sqlcommand = "select * from `member`";
+    var sqlcommand = "select `ID`,`username`,`email`,`phone`,`level` from `member`";
     const inserts=[];
     sqlcommand=database.format(sqlcommand,inserts);
     try{
@@ -14,7 +14,7 @@ async function getAllMembers(){
 }
 
 async function getMember(ID){
-    var sqlCommand = "SELECT * FROM `member` WHERE `ID` = ?";
+    var sqlCommand = "SELECT `ID`,`username`,`email`,`phone`,`level` FROM `member` WHERE `ID` = ?";
     const inserts = [ID];
     sqlCommand = database.format(sqlCommand, inserts);
     try {
