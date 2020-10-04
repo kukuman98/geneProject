@@ -28,13 +28,13 @@ router.post('/',async (req,res,next) =>{
             return
         }
         console.log(req.query)
-        if(!req.files) {
+        if(!req.body.file) {
             res.send({
                 status: false,
                 message: 'No file uploaded'
             });
         } else {
-            let avatar = req.files.file;
+            let avatar = req.body.file;
             avatar.mv('./csv/' + avatar.name);
             let records =await AT.csv_to_airtable('./csv/'+avatar.name.toString(),req.query['base'],req.query['table'])
             res.status(records).send({
