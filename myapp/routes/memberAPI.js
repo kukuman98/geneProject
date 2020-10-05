@@ -17,6 +17,7 @@ async function checkPermission(permission,level){
 
 router.get('/',async (req, res, next) => {
     try {
+        var token  = req.headers['authorization']
         if(token == undefined){
             res.status(400).send('Not found Authorization token in Headers!!')
             return 
@@ -40,6 +41,7 @@ router.get('/',async (req, res, next) => {
 
 router.get('/detail/',async (req,res,next) => {
     try {
+        var token  = req.headers['authorization']
         if(token == undefined){
             res.status(400).send('Not found Authorization token in Headers!!')
             return 
@@ -64,6 +66,7 @@ router.get('/detail/',async (req,res,next) => {
 
 router.put('/detail/',async (req,res,next) => {
     try {
+        var token  = req.headers['authorization']
         if(token == undefined){
             res.status(400).send('Not found Authorization token in Headers!!')
             return 
@@ -88,6 +91,7 @@ router.put('/detail/',async (req,res,next) => {
 
 router.delete('/detail/',async (req,res,next) => {
     try {
+        var token  = req.headers['authorization']
         if(token == undefined){
             res.status(400).send('Not found Authorization token in Headers!!')
             return 
@@ -112,6 +116,7 @@ router.delete('/detail/',async (req,res,next) => {
 
 router.put('/modify/', async (req,res,next)=>{
     try {
+        var token  = req.headers['authorization']
         if(token == undefined){
             res.status(400).send('Not found Authorization token in Headers!!')
             return 
