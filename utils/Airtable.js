@@ -26,7 +26,7 @@ async function csv_to_airtable(CSVFile,baseName,tableName){
         baseID = 'appKEDZLmLCDDRrW3'
     }
     else{
-        return 'Not found the base in airtable'
+        return {code:404,error:'Not found the base in airtable'}
     }
 
     try{

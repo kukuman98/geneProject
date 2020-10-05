@@ -19,7 +19,7 @@ async function checkPermission(token,level){
     }
 }
 
-router.post('/',async (req,res,next) =>{
+router.post('/uploads/',async (req,res,next) =>{
     try {
         console.log(typeof(req.files.file))
         console.log(req.files.file)
@@ -37,7 +37,6 @@ router.post('/',async (req,res,next) =>{
         } else {
             let avatar = req.files.file;
             avatar.mv('./tmp/' + avatar.name);
-            let records =await AT.csv_to_airtable('./tmp/'+avatar.name.toString(),req.body['base'],req.body['table'])
             res.status(records).send({
                 status: true,
                 message: 'File is uploaded',
@@ -53,6 +52,23 @@ router.post('/',async (req,res,next) =>{
         res.status(500).send(err);
     }
 })
+
+router.post('/',async (req,res,next) =>{
+    try {
+        if(await checkPermission(req.headers['authorization'],3) == false){
+            res.send('permission denied')
+            return
+        } else {
+            let records =await AT.csv_to_airtable('./tmp/' + req.body['filename'],req.body['base'],req.body['table'])
+            res.status(records['code']).send(records['error']);
+        }
+        
+    } catch(err){
+        res.status(500).send(err);
+    }
+})
+
+
 
 router.get('/getMatchRecords/',async (req,res,next) =>{
     try {
