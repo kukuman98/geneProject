@@ -27,7 +27,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(fileUpload({
-  createParentPath: true,
+  useTempFiles : true,
+  tempFileDir : '/tmp/',
   debug:true,
 }));
 app.use(bodyParser.json());
