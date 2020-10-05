@@ -3,11 +3,7 @@ var router = express.Router();
 var jwt_decode = require('jwt-decode');
 var mms = require('../../utils/MMS');
 
-async function checkPermission(token,level){
-    if(token == undefined) return false
-    let permission = jwt_decode(token)
-    var member = await mms.getMember(permission['uid'])
-    if(member[0]['ID'] != permission['uid']) return false
+async function checkPermission(permission,level){
     if(level==3 && permission['admin'] == true){
         return true
     }
@@ -21,8 +17,18 @@ async function checkPermission(token,level){
 
 router.get('/',async (req, res, next) => {
     try {
-        if(await checkPermission(req.headers['authorization'],3) == false){
-            res.send('permission denied')
+        if(token == undefined){
+            res.status(400).send('Not found Authorization token in Headers!!')
+            return 
+        }
+        let permission = jwt_decode(token)
+        var member = await mms.getMember(permission['uid'])
+        if(member[0]['ID'] != permission['uid']){
+            res.status(401).send('Not found User in DataBase')
+            return
+        } 
+        if(await checkPermission(permission,3) == false){
+            res.status(403).send('Forbidden : permission denied')
             return
         }
         let memberFecth = await mms.getAllMembers()
@@ -34,8 +40,18 @@ router.get('/',async (req, res, next) => {
 
 router.get('/detail/',async (req,res,next) => {
     try {
-        if(await checkPermission(req.headers['authorization'],3) == false){
-            res.send('permission denied')
+        if(token == undefined){
+            res.status(400).send('Not found Authorization token in Headers!!')
+            return 
+        }
+        let permission = jwt_decode(token)
+        var member = await mms.getMember(permission['uid'])
+        if(member[0]['ID'] != permission['uid']){
+            res.status(401).send('Not found User in DataBase')
+            return
+        } 
+        if(await checkPermission(permission,3) == false){
+            res.status(403).send('Forbidden : permission denied')
             return
         }
         let member_ID = req.query['ID'];
@@ -48,13 +64,23 @@ router.get('/detail/',async (req,res,next) => {
 
 router.put('/detail/',async (req,res,next) => {
     try {
-        if(await checkPermission(req.headers['authorization'],3) == false){
-            res.send('permission denied')
+        if(token == undefined){
+            res.status(400).send('Not found Authorization token in Headers!!')
+            return 
+        }
+        let permission = jwt_decode(token)
+        var member = await mms.getMember(permission['uid'])
+        if(member[0]['ID'] != permission['uid']){
+            res.status(401).send('Not found User in DataBase')
+            return
+        } 
+        if(await checkPermission(permission,3) == false){
+            res.status(403).send('Forbidden : permission denied')
             return
         }
         let data = req.body;
         let memberFecth = await mms.updateMember(data['ID'],data['username'],data['email'],data['phone'],data['level']);
-        res.send(memberFecth);
+        res.status(memberFecth['code']).send(memberFecth['message']);
     } catch(err){
         res.status(500).send(err);
     }
@@ -62,13 +88,23 @@ router.put('/detail/',async (req,res,next) => {
 
 router.delete('/detail/',async (req,res,next) => {
     try {
-        if(await checkPermission(req.headers['authorization'],3) == false){
-            res.send('permission denied')
+        if(token == undefined){
+            res.status(400).send('Not found Authorization token in Headers!!')
+            return 
+        }
+        let permission = jwt_decode(token)
+        var member = await mms.getMember(permission['uid'])
+        if(member[0]['ID'] != permission['uid']){
+            res.status(401).send('Not found User in DataBase')
+            return
+        } 
+        if(await checkPermission(permission,3) == false){
+            res.status(403).send('Forbidden : permission denied')
             return
         }
         let member_ID = req.body['ID'];
         let memberFecth = await mms.deleteMember(member_ID);
-        res.send(memberFecth);    
+        res.status(memberFecth['code']).send(memberFecth['message']);  
     } catch(err){
         res.status(500).send(err);
     }
@@ -76,13 +112,23 @@ router.delete('/detail/',async (req,res,next) => {
 
 router.put('/modify/', async (req,res,next)=>{
     try {
-        if(await checkPermission(req.headers['authorization'],3) == false){
-            res.send('permission denied')
+        if(token == undefined){
+            res.status(400).send('Not found Authorization token in Headers!!')
+            return 
+        }
+        let permission = jwt_decode(token)
+        var member = await mms.getMember(permission['uid'])
+        if(member[0]['ID'] != permission['uid']){
+            res.status(401).send('Not found User in DataBase')
+            return
+        } 
+        if(await checkPermission(permission,3) == false){
+            res.status(403).send('Forbidden : permission denied')
             return
         }
         let data = req.body;
         let memberFecth = await mms.modify(data['ID'],data['field'],data['value']);
-        res.send(memberFecth);    
+        res.status(memberFecth['code']).send(memberFecth['message']);   
     } catch(err){
         res.status(500).send(err);
     }

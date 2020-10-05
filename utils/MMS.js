@@ -12,7 +12,6 @@ function _uuid() {
     });
 }
 
-
 async function getAllMembers(){
     var sqlcommand = "select `ID`,`username`,`email`,`phone`,`level` from `member`";
     const inserts=[];
@@ -38,33 +37,32 @@ async function getMember(ID){
         return Promise.reject(err)
     }
 }
+
 async function updateMember(ID, username, email, phone, level){
     var sqlCommand = "UPDATE `member` SET `username` = ?,`email` = ?,`phone` = ?,`level` = ? WHERE `ID` = ?";
     const inserts = [username, email, phone, level,ID];
     sqlCommand = database.format(sqlCommand, inserts);
     try {
         await database.query(sqlCommand);
-        return Promise.resolve("success update member")
+        return {code:204,message:'member updated successfully'}
     }
     catch(err){
         return Promise.reject(err)
     }
 }
+
 async function deleteMember(ID){
     var sqlCommand = "DELETE FROM `member` WHERE `ID`=?";
     const inserts = [ID];
     sqlCommand = database.format(sqlCommand, inserts);
     try {
         await database.query(sqlCommand);
-        return Promise.resolve("success delete member");
+        return {code:204,message:'member deleted successfully'}
     }
     catch(err){
         return Promise.reject(err);
     }
 }
-
-
-
 
 async function register(username,password,email,phone,level){
 
@@ -75,13 +73,12 @@ async function register(username,password,email,phone,level){
         const inserts = [member_ID,username,password,email,phone,level];
         sqlCommand = database.format(sql, inserts);
         await database.query(sqlCommand);
-        return Promise.resolve("success register member");
+        return {code:201,message:'member register successfully'}
     }
     catch (err) {
         return Promise.reject(err);
     }
 }
-
 
 async function modify (id, field, value){
     try {
@@ -89,7 +86,7 @@ async function modify (id, field, value){
         const inserts = [field, value, id]
         sql = database.format(sql, inserts)
         results = await database.query(sql)
-        return Promise.resolve('success modify field')
+        return {code:204,message:'password updated successfully'}
     }
     catch (err) {
         return Promise.reject(err)

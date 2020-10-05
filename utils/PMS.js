@@ -32,7 +32,7 @@ async function insertPatient(first_name, last_name, email, birth, gender,allerge
     sqlCommand = database.format(sql,inserts);
     try {
         await database.query(sqlCommand);
-        return Promise.resolve("success insert patient")
+        return {code:201,message:'patient created successfully'}
     }
     catch(err){
         return Promise.reject(err)
@@ -46,7 +46,7 @@ async function updatePatient(patient_ID, first_name, last_name, email, birth, ge
     sqlCommand = database.format(sqlCommand, inserts);
     try {
         await database.query(sqlCommand);
-        return Promise.resolve("success update patient")
+        return {code:204,message:'patient updated successfully'}
     }
     catch(err){
         return Promise.reject(err)
@@ -59,7 +59,7 @@ async function deletePatient(patient_ID){
     sqlCommand = database.format(sqlCommand, inserts);
     try {
         await database.query(sqlCommand);
-        return Promise.resolve("success delete patient");
+        return {code:204,message:'patient deleted successfully'}
     }
     catch(err){
         return Promise.reject(err);

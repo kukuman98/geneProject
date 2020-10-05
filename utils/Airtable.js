@@ -26,7 +26,7 @@ async function csv_to_airtable(CSVFile,baseName,tableName){
         baseID = 'appKEDZLmLCDDRrW3'
     }
     else{
-        return {code:404,error:'Not found the base in airtable'}
+        return {code:404,message:'Not found the base in airtable'}
     }
 
     try{
@@ -43,14 +43,14 @@ async function csv_to_airtable(CSVFile,baseName,tableName){
             data[i]['A'] = parseInt(data[i]['A'])
             await att.create(data[i]);
         }
-        return 200    
+        return {code:200,message:'This file is included in airtable'}   
     }
     else if(baseID=='appKEDZLmLCDDRrW3'){   //  patient mutation
         data = await csv.readCVS(CSVFile)
         for (i=0;i<data.length;i++){
             await att.create(data[i]);
         }
-        return 200
+        return {code:200,message:'This file is included in airtable'}
     }
 }
 

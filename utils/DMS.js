@@ -38,7 +38,7 @@ async function insertDisease(patient_ID,medical_name,hospital,medical_date,medic
     sqlCommand.push(sql2);
     try {
         await database.transaction(sqlCommand);
-        return Promise.resolve("success insert")
+        return {code:201,message:'history created successfully'}
     }
     catch(err){
         return Promise.reject(err)
@@ -51,7 +51,7 @@ async function updateDisease(history_ID, medical_name,hospital,medical_date,medi
     sqlCommand = database.format(sqlCommand, inserts);
     try {
         await database.query(sqlCommand);
-        return Promise.resolve("success update history")
+        return {code:204,message:'history updated successfully'}
     }
     catch(err){
         return Promise.reject(err)
@@ -65,7 +65,7 @@ async function modify (history_ID, field, value){
         const inserts = [field, value, history_ID]
         sql = database.format(sql, inserts)
         results = await database.query(sql)
-        return Promise.resolve('success modify field')
+        return {code:204,message:'field updated successfully'}
     }
     catch (err) {
         return Promise.reject(err)
@@ -79,7 +79,7 @@ async function deleteDisease(history_ID){
     sqlCommand = database.format(sqlCommand, inserts);
     try {
         await database.query(sqlCommand);
-        return Promise.resolve("success delete disease");
+        return {code:204,message:'history deleted successfully'}
     }
     catch(err){
         return Promise.reject(err);

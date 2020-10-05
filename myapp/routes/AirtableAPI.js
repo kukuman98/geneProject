@@ -4,10 +4,7 @@ var AT=require('../../utils/Airtable');
 var mms = require('../../utils/MMS');
 var jwt_decode = require('jwt-decode');
 
-async function checkPermission(token,level){
-    let permission = jwt_decode(token)
-    var member = await mms.getMember(permission['uid'])
-    if(member[0]['ID'] != permission['uid']) return false
+async function checkPermission(permission,level){
     if(level==3 && permission['admin'] == true){
         return true
     }
@@ -25,8 +22,19 @@ router.post('/uploads/',async (req,res,next) =>{
         console.log(req.files.file)
         console.log(typeof(req.files))
         console.log(req.body)
-        if(await checkPermission(req.headers['authorization'],3) == false){
-            res.send('permission denied')
+        var token  = req.headers['authorization']
+        if(token == undefined){
+            res.status(400).send('Not found Authorization token in Headers!!')
+            return 
+        }
+        let permission = jwt_decode(token)
+        var member = await mms.getMember(permission['uid'])
+        if(member[0]['ID'] != permission['uid']){
+            res.status(401).send('Not found User in DataBase')
+            return
+        } 
+        if(await checkPermission(permission,3) == false){
+            res.status(403).send('Forbidden : permission denied')
             return
         }
         if(!req.files) {
@@ -37,7 +45,7 @@ router.post('/uploads/',async (req,res,next) =>{
         } else {
             let avatar = req.files.file;
             avatar.mv('./tmp/' + avatar.name);
-            res.status(records).send({
+            res.send({
                 status: true,
                 message: 'File is uploaded',
                 data: {
@@ -55,25 +63,43 @@ router.post('/uploads/',async (req,res,next) =>{
 
 router.post('/',async (req,res,next) =>{
     try {
-        if(await checkPermission(req.headers['authorization'],3) == false){
-            res.send('permission denied')
+        var token  = req.headers['authorization']
+        if(token == undefined){
+            res.status(400).send('Not found Authorization token in Headers!!')
+            return 
+        }
+        let permission = jwt_decode(token)
+        var member = await mms.getMember(permission['uid'])
+        if(member[0]['ID'] != permission['uid']){
+            res.status(401).send('Not found User in DataBase')
+            return 
+        } 
+        if(await checkPermission(permission,3) == false){
+            res.status(403).send('Forbidden : permission denied')
             return
-        } else {
-            let records =await AT.csv_to_airtable('./tmp/' + req.body['filename'],req.body['base'],req.body['table'])
-            res.status(records['code']).send(records['error']);
         }
         
+        let records =await AT.csv_to_airtable('./tmp/' + req.body['filename'],req.body['base'],req.body['table'])
+        res.status(records['code']).send(records['message']);
     } catch(err){
         res.status(500).send(err);
     }
 })
 
-
-
 router.get('/getMatchRecords/',async (req,res,next) =>{
     try {
-        if(await checkPermission(req.headers['authorization'],2) == false){
-            res.send('permission denied')
+        if(token == undefined){
+            res.status(400).send('Not found Authorization token in Headers!!')
+            return 
+        }
+        let permission = jwt_decode(token)
+        var member = await mms.getMember(permission['uid'])
+        if(member[0]['ID'] != permission['uid']){
+            res.status(401).send('Not found User in DataBase')
+            return
+        } 
+        if(await checkPermission(permission,2) == false){
+            res.status(403).send('Forbidden : permission denied')
             return
         }
         let matchRecords = await AT.getMatchData(req.query['compare_table'],req.query['patient_ID'])

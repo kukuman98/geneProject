@@ -4,7 +4,7 @@ var mms = require('../../utils/MMS');
 const jwt = require('jsonwebtoken')
 router.post('/', function (req, res, next) {
     const data = req.body
-    mms.register(data['username'], data['password'],data['email'], data['phone'], data['level'])
+    let fetchmms = mms.register(data['username'], data['password'],data['email'], data['phone'], data['level'])
         .then(function (uid) {
             console.log(uid)
             const token = 'Bearer ' + jwt.sign(
@@ -22,6 +22,7 @@ router.post('/', function (req, res, next) {
         .catch(function (err) {
             res.json({err:String(err)})
         })
+    res.status(fetchmms['code']).send(fetchmms['message']);
 });
 
 module.exports = router;
