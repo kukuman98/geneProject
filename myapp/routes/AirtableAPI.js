@@ -21,13 +21,13 @@ async function checkPermission(token,level){
 
 router.post('/',async (req,res,next) =>{
     try {
-        console.log(req.body.file)
+        console.log(typeof(req.files.file))
         console.log(req.files.file)
+        console.log(typeof(req.files))
         if(await checkPermission(req.headers['authorization'],3) == false){
             res.send('permission denied')
             return
         }
-        console.log(req.query)
         if(!req.files) {
             res.send({
                 status: false,
