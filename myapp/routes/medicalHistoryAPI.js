@@ -30,7 +30,7 @@ router.get('/',async (req, res, next) => {
         let historyFecth = await dms.getAllDiseases(data['patient_ID'])
         res.send(historyFecth);
     } catch (err) {
-        next(err);
+        res.status(500).send(err);
     }
 });
 
@@ -44,7 +44,7 @@ router.post('/detail/',async (req,res,next) => {
         let historyFecth = await dms.insertDisease(data['patient_ID'],data['medical_name'],data['hospital'],data['medical_date'],data['medical_instructions'],data['medical_description']);
         res.send(historyFecth);
     } catch(err){
-        next(err);
+        res.status(500).send(err);
     }
 });
 
@@ -58,7 +58,7 @@ router.put('/detail/',async (req,res,next) => {
         let historyFecth = await dms.updateDisease(data['history_ID'],data['medical_name'],data['hospital'],data['medical_date'],data['medical_instructions'],data['medical_description']);
         res.send(historyFecth);
     } catch(err){
-        next(err);
+        res.status(500).send(err);
     }
 });
 
@@ -72,7 +72,7 @@ router.delete('/detail/',async (req,res,next) => {
         let historyFecth = await dms.deleteDisease(history_ID);
         res.send(historyFecth);
     } catch(err){
-        next(err);
+        res.status(500).send(err);
     }
 });
 
@@ -86,7 +86,7 @@ router.put('/modify/',async (req,res,next) => {
         let historyFecth = await dms.modify(data['history_ID'],data['field'],data['value']);
         res.send(historyFecth);
     } catch(err){
-        next(err);
+        res.status(500).send(err);
     }
 });
 

@@ -63,7 +63,7 @@ router.get('/getMatchRecords/',async (req,res,next) =>{
         let matchRecords = await AT.getMatchData(req.query['compare_table'],req.query['patient_ID'])
         res.send(matchRecords)
     } catch(err){
-        next(err);
+        res.status(500).send(err);
     }
 })
 

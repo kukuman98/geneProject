@@ -4,11 +4,7 @@ var jwt_decode = require('jwt-decode');
 var pms = require('../../utils/PMS');
 var mms = require('../../utils/MMS')
 
-async function checkPermission(token,level){
-    if(token == undefined) return false
-    let permission = jwt_decode(token)
-    var member = await mms.getMember(permission['uid'])
-    if(member[0]['ID'] != permission['uid']) return false
+async function checkPermission(permission,level){
     if(level==3 && permission['admin'] == true){
         return true
     }
@@ -22,7 +18,15 @@ async function checkPermission(token,level){
 
 router.post('/',async (req,res,next) => {
     try {
-        if(await checkPermission(req.headers['authorization'],3) == false){
+        var token  = req.headers['authorization']
+        if(token == undefined){
+            res.status(400).send('Not found Authorization in Headers!!')
+            return 
+        }
+        let permission = jwt_decode(token)
+        var member = await mms.getMember(permission['uid'])
+        if(member[0]['ID'] != permission['uid']) return false
+        if(await checkPermission(permission,3) == false){
             res.send('permission denied')
             return
         }
@@ -30,7 +34,7 @@ router.post('/',async (req,res,next) => {
         let fetchPms = await pms.insertPatient(data['first_name'],data['last_name'],data['email'],data['birth'],data['gender'],data['allergen'])
         res.send(fetchPms);    
     } catch(err){
-        next(err);
+        res.status(500).send(err);
     }
 
 });
@@ -44,7 +48,7 @@ router.get('/', async (req, res, next) =>{
         let patienFecth = await pms.getAllPatients();
         res.send(patienFecth);    
     } catch (err) {
-        next(err);
+        res.status(500).send(err);
     }
 });
 
@@ -58,7 +62,7 @@ router.get('/detail/', async (req, res, next) =>{
         let patienFecth = await pms.getPatient(data['patient_ID']);
         res.send(patienFecth);    
     } catch (err) {
-        next(err);
+        res.status(500).send(err);
     }
 });
 
@@ -72,7 +76,7 @@ router.put('/detail/',async (req,res,next) => {
         let fetchPms = await pms.updatePatient(data['patient_ID'],data['first_name'],data['last_name'],data['email'],data['birth'],data['gender'],data['allergen']);
         res.send(fetchPms);    
     } catch(err){
-        next(err);
+        res.status(500).send(err);
     }
 });
 
@@ -86,7 +90,7 @@ router.delete('/detail/',async (req,res,next) => {
         let fetchPms = await pms.deletePatient(patient_ID);
         res.send(fetchPms);    
     } catch(err){
-        next(err);
+        res.status(500).send(err);
     }
 });
 module.exports = router;

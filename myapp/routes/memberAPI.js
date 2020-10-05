@@ -28,7 +28,7 @@ router.get('/',async (req, res, next) => {
         let memberFecth = await mms.getAllMembers()
         res.send(memberFecth);    
     } catch (err) {
-        next(err);
+        res.status(500).send(err);
     }
 });
 
@@ -42,7 +42,7 @@ router.get('/detail/',async (req,res,next) => {
         let memberFecth = await mms.getMember(member_ID);
         res.send(memberFecth);    
     } catch(err){
-        next(err);
+        res.status(500).send(err);
     }
 });
 
@@ -56,7 +56,7 @@ router.put('/detail/',async (req,res,next) => {
         let memberFecth = await mms.updateMember(data['ID'],data['username'],data['email'],data['phone'],data['level']);
         res.send(memberFecth);
     } catch(err){
-        next(err);
+        res.status(500).send(err);
     }
 });
 
@@ -70,7 +70,7 @@ router.delete('/detail/',async (req,res,next) => {
         let memberFecth = await mms.deleteMember(member_ID);
         res.send(memberFecth);    
     } catch(err){
-        next(err);
+        res.status(500).send(err);
     }
 });
 
@@ -84,7 +84,7 @@ router.put('/modify/', async (req,res,next)=>{
         let memberFecth = await mms.modify(data['ID'],data['field'],data['value']);
         res.send(memberFecth);    
     } catch(err){
-        next(err);
+        res.status(500).send(err);
     }
 })
 module.exports = router;
