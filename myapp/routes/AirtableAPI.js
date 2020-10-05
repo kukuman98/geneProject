@@ -24,6 +24,7 @@ router.post('/',async (req,res,next) =>{
         console.log(typeof(req.files.file))
         console.log(req.files.file)
         console.log(typeof(req.files))
+        console.log(req.body)
         if(await checkPermission(req.headers['authorization'],3) == false){
             res.send('permission denied')
             return
@@ -36,7 +37,7 @@ router.post('/',async (req,res,next) =>{
         } else {
             let avatar = req.files.file;
             avatar.mv('./csv/' + avatar.name);
-            let records =await AT.csv_to_airtable('./csv/'+avatar.name.toString(),req.query['base'],req.query['table'])
+            let records =await AT.csv_to_airtable('./csv/'+avatar.name.toString(),req.body['base'],req.body['table'])
             res.status(records).send({
                 status: true,
                 message: 'File is uploaded',
