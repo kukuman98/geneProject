@@ -88,6 +88,7 @@ router.post('/',async (req,res,next) =>{
 
 router.get('/getMatchRecords/',async (req,res,next) =>{
     try {
+        var token  = req.headers['authorization']
         if(token == undefined){
             res.status(400).send('Not found Authorization token in Headers!!')
             return 
