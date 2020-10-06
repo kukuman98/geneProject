@@ -18,25 +18,25 @@ async function checkPermission(permission,level){
 
 router.post('/uploads/',async (req,res,next) =>{
     try {
-        console.log(typeof(req.files.file))
-        console.log(req.files.file)
-        console.log(typeof(req.files))
-        console.log(req.body)
-        var token  = req.headers['authorization']
-        if(token == undefined){
-            res.status(400).send('Not found Authorization token in Headers!!')
-            return 
-        }
-        let permission = jwt_decode(token)
-        var member = await mms.getMember(permission['uid'])
-        if(member[0]['ID'] != permission['uid']){
-            res.status(401).send('Not found User in DataBase')
-            return
-        } 
-        if(await checkPermission(permission,3) == false){
-            res.status(403).send('Forbidden : permission denied')
-            return
-        }
+        // console.log(typeof(req.files.file))
+        // console.log(req.files.file)
+        // console.log(typeof(req.files))
+        // console.log(req.body)
+        // var token  = req.headers['authorization']
+        // if(token == undefined){
+        //     res.status(400).send('Not found Authorization token in Headers!!')
+        //     return 
+        // }
+        // let permission = jwt_decode(token)
+        // var member = await mms.getMember(permission['uid'])
+        // if(member[0]['ID'] != permission['uid']){
+        //     res.status(401).send('Not found User in DataBase')
+        //     return
+        // } 
+        // if(await checkPermission(permission,3) == false){
+        //     res.status(403).send('Forbidden : permission denied')
+        //     return
+        // }
         if(!req.files) {
             res.send({
                 status: false,
