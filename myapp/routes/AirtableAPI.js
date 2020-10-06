@@ -78,7 +78,8 @@ router.post('/',async (req,res,next) =>{
             res.status(403).send('Forbidden : permission denied')
             return
         }
-        
+        console.log(req.body)
+        console.log(req.params)
         let records =await AT.csv_to_airtable('./tmp/' + req.body['filename'],req.body['base'],req.body['table'])
         res.status(records['code']).send(records['message']);
     } catch(err){
