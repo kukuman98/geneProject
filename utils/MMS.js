@@ -68,7 +68,6 @@ async function register(username,password,email,phone,level){
 
     try {
         var member_ID = _uuid()
-        console.log(member_ID)
         let sql = "INSERT into `member` (`ID`,`username`, `password`, `email`, `phone`,`level`) VALUE (?,?,?,?,?,?)";
         const inserts = [member_ID,username,password,email,phone,level];
         sqlCommand = database.format(sql, inserts);
@@ -99,9 +98,7 @@ async function login(email, password){
         let sql = "SELECT `password`,`ID`,`level` FROM `member` WHERE `email`=?"
         const inserts = [email]
         sql = database.format(sql, inserts)
-        console.log(sql)
         results = await database.query(sql)
-        console.log(results[0]['password'],password)
         if (results[0]['password'] == password) {
             return Promise.resolve({"ID":results[0]['ID'],"level":results[0]['level']})
         }

@@ -22,7 +22,6 @@ let query = function (sql) {
                         reject(err)
                     }
                     else {
-                        console.log(rows)
                         resolve(rows)
                     }
                     connection.release()  // 結束會話
@@ -50,7 +49,6 @@ let transaction = function (sql) {
                                     callback(err)
                                 }
                                 else {
-                                    console.log(element, result);
                                     callback()
                                 }
                             })

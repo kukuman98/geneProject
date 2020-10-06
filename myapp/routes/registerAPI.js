@@ -6,7 +6,6 @@ router.post('/', function (req, res, next) {
     const data = req.body
     let fetchmms = mms.register(data['username'], data['password'],data['email'], data['phone'], data['level'])
         .then(function (uid) {
-            console.log(uid)
             const token = 'Bearer ' + jwt.sign(
                 {
                     uid: uid,
