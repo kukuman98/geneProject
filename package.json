@@ -27,7 +27,7 @@
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "react": "^16.13.1",
-    "xlsx": "^0.16.7"
+    "xlsx": "^0.17.0"
   },
   "devDependencies": {},
   "engines": {
